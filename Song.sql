@@ -1,61 +1,68 @@
-DROP TABLE IF EXISTS Contributer;
 DROP TABLE IF EXISTS SongArtist;
+DROP TABLE IF EXISTS SongWriter;
+DROP TABLE IF EXISTS SongProducer;
+DROP TABLE IF EXISTS Song;
 DROP TABLE IF EXISTS Artist;
 DROP TABLE IF EXISTS Producer;
 DROP TABLE IF EXISTS Writer;
-DROP TABLE IF EXISTS Song;
 
+-----one to many relationships-----
 
 CREATE TABLE Song
 (
     ID INT PRIMARY KEY,
-    Title VARCHAR(30)
+    name VARCHAR(30)
 );
 
 CREATE TABLE Artist
 (
     ID INT PRIMARY KEY,
-    A_NAME VARCHAR(30),
-    SongID INT,
-    FOREIGN KEY (SongID) REFERENCES Song(ID)
+    name VARCHAR(30)
 );
 
 CREATE TABLE Producer 
 (
     ID INT PRIMARY KEY,
-    SongID INT,
-    P_NAME VARCHAR(30),
-    FOREIGN KEY (SongID) REFERENCES Song(ID)
+    name VARCHAR(30)
 );
 
 CREATE TABLE Writer
 (
     ID INT PRIMARY KEY,
-    W_NAME VARCHAR(30)
+    name VARCHAR(30)
 );
+
+--many to many relationships--
 
 CREATE TABLE SongArtist
 (
     SongID INT,
     ArtistID INT,
-    PRIMARY KEY (SongID, ArtistID),
     FOREIGN KEY (SongID) REFERENCES Song(ID),
-    FOREIGN KEY (ArtistID) REFERENCES Artist(ID)
+    FOREIGN KEY (ArtistID) REFERENCES Artist(ID),
+    PRIMARY KEY (SongID, ArtistID)
 );
 
-CREATE TABLE Contributer
+CREATE TABLE SongWriter 
 (
-    ID INT,
-    AID INT,
-    PID INT,
-    WID INT,
-    FOREIGN KEY (AID) REFERENCES Producer(ID),
-    FOREIGN KEY (PID) REFERENCES Artist(ID),
-    FOREIGN KEY (WID) REFERENCES Writer(ID),
-    PRIMARY KEY (ID, AID, PID, WID)
+    SongID INTEGER,
+    WriterID INTEGER,
+    FOREIGN KEY (SongID) REFERENCES Song(ID),
+    FOREIGN KEY (WriterID) REFERENCES Writer(ID),
+    PRIMARY KEY (SongID, WriterID)
 );
 
-INSERT INTO Song (ID, Title) VALUES 
+CREATE TABLE SongProducer 
+(
+    SongID INT,
+    ProducerID INT,
+    FOREIGN KEY (SongID) REFERENCES Song(ID),
+    FOREIGN KEY (ProducerID) REFERENCES Producer(ID)
+);
+
+--insert data--
+
+INSERT INTO Song (ID, name) VALUES 
     (1, 'Go With the Flow'),
     (2, 'Sacrifice'   ),
     (3, 'Stupid Love' ),
@@ -87,42 +94,41 @@ INSERT INTO Song (ID, Title) VALUES
     (29, 'Canto Della Terra'),
     (30, 'Of The Night');
 
+INSERT INTO Artist (ID, name) VALUES
+    (1,'Queens of the Stoneage'),
+    (2,'The Weeknd'),
+    (3,'Lady Gaga'),
+    (4,'The Strokes'),
+    (5,'Black Sabbath'),
+    (6,'Motörhead'), 
+    (7,'Jeff Rosenstock'),
+    (8,'Johnny Foreigner'),
+    (9,'Streetlight Manifesto'),
+    (10,'Modern Baseball'), 
+    (11,'American Football'),
+    (12,'Fatter Than Albert'),
+    (13,'Radiohead'),
+    (14,'Crystal Castles'),
+    (15,'Zedd'),
+    (16,'Foxes'),
+    (17,'Fetty Wap'),
+    (18,'Fleshwater'),
+    (19,'Bob Marley & The Wailers'),
+    (20,'Kenny Rogers'),
+    (21,'Aerosmith'),
+    (22,'Afrika Bambaataa'),
+    (22,'The Soulsonic Force'),
+    (23,'Willie Nelson'),
+    (24,'Johnny Cash'),
+    (25,'Dio'),
+    (26,'David Guetta'),
+    (27,'Panic At The Disco!'),
+    (28,'Dawid Podsiadło'),
+    (29,'Disturbed'),
+    (30,'Andrea Bocelli'),
+    (31,'Bastile'); 
 
-INSERT INTO Artist (ID, SongID, A_NAME) VALUES
-    (1, 1, 'Queens of the Stonage'),
-    (2, 2, 'The Weeknd'),
-    (3, 3, 'Lady Gaga'),
-    (4, 4, 'The Strokes'),
-    (5, 5, 'Black Sabbath'),
-    (6, 6, 'Motörhead'), 
-    (7, 7, 'Jeff Rosenstock'),
-    (8, 8, 'Johnny Foreigner'),
-    (9, 9, 'Streetlight Manifesto'),
-    (10, 10, 'Modern Baseball'), 
-    (11, 11, 'American Football'),
-    (12, 12, 'Fatter Than Albert'),
-    (13, 13, 'Radiohead'),
-    (14, 14, 'Crystal Castles'),
-    (15, 15, 'Zedd'),
-    (16, 15, 'Foxes'),
-    (17, 16, 'Fetty Wap'),
-    (18, 17,'Fleshwater'),
-    (19, 18, 'Bob Marley & The Wailers'),
-    (20, 19,'Kenny Rogers'),
-    (21, 20, 'Aerosmith'),
-    (22, 21, 'Afrika Bambaataa'),
-    (22, 21, 'The Soulsonic Force'),
-    (23, 22, 'Willie Nelson'),
-    (24, 23, 'Johnny Cash'),
-    (25, 24, 'Dio'),
-    (26, 25, 'David Guetta'),
-    (27, 26, 'Panic At The Disco!'),
-    (28, 27, 'Dawid Podsiadło'),
-    (29, 28, 'Disturbed'),
-    (30, 29, 'Andrea Bocelli'),
-    (31, 30, 'Bastile'); 
-
-INSERT INTO Writer (ID, W_NAME) VALUES
+INSERT INTO Writer (ID, name) VALUES
     (1, 'Josh Homme'),
     (1, 'Nick Oliver'),
     (2, 'Max Martin'),
@@ -211,10 +217,45 @@ INSERT INTO Writer (ID, W_NAME) VALUES
     (30, 'John Garrett III'),
     (30, 'Thea Austin');
 
-    INSERT INTO Producer (ID, SongID, P_NAME)
-    VALUES(1, 1, 'Josh Homme'),
-          (2, 1, 'Eric Valentine');
+    INSERT INTO Producer (ID, name) VALUES
+    (1, 'Josh Homme'),
+    (2, 'Eric Valentine');
 
---show tables--
-SELECT *
-    FROM Song, Artist, Producer, Writer;
+--linking tables--
+
+-- Linking Song with Artist
+INSERT INTO SongArtist (SongID, ArtistID) VALUES 
+(1, 1); 
+
+-- Linking Song with Producer
+INSERT INTO SongProducer (SongID, ProducerID) VALUES 
+(1, 1),
+(1, 2);
+
+-- Linking Song with Writer
+INSERT INTO SongWriter (SongID, WriterID) VALUES 
+(1, 1),
+(1, 2);
+
+--queries--
+
+--select statement that shows all artists of song 1
+SELECT Artist.name
+    FROM Artist
+    JOIN SongArtist ON Artist.ID = SongArtist.ArtistID
+    JOIN Song ON Song.ID = SongArtist.SongID
+    WHERE Song.ID = 1;
+
+-- select statement that shows all producers of song 1
+SELECT Producer.name
+    FROM Producer
+    JOIN SongProducer ON Producer.ID = SongProducer.ProducerID
+    JOIN Song ON Song.ID = SongProducer.SongID
+    WHERE Song.ID = 1;
+
+-- select statement that shows all writers of song 1
+SELECT Writer.name
+    FROM Writer
+    JOIN SongWriter ON Writer.ID = SongWriter.WriterID
+    JOIN Song ON Song.ID = SongWriter.SongID
+    WHERE Song.ID = 1;
