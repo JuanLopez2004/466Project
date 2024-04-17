@@ -23,7 +23,7 @@ CREATE TABLE Artist
 CREATE TABLE Producer 
 (
     ID INT PRIMARY KEY,
-    Prod_name VARCHAR(30)
+    Prod_Name VARCHAR(30)
 );
 
 CREATE TABLE Writer
