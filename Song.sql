@@ -192,7 +192,7 @@ INSERT INTO Writer (ID, Writer_Name) VALUES
     (15, 'Martin Bresso'),              -- (3) Stupid Love
     (16, 'Julian Casablancas'),         -- (4) Reptilia
     (17, 'Ozzy Osbourne'),              -- (5) Paranoid
-    (18, 'Tony Lommi'),                 -- (5) Paranoid
+    (18, 'Tony Iommi'),                 -- (5) Paranoid
     (19, 'Geezer Butler'),              -- (5) Paranoid
     (20, 'Bill Ward'),                  -- (5) Paranoid
     (21, 'Eddie Clarke'),               -- (6) Dirty Love
