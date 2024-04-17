@@ -1,19 +1,5 @@
-DROP TABLE IF EXISTS SongArtist;
-DROP TABLE IF EXISTS SongWriter;
-DROP TABLE IF EXISTS SongProducer;
-DROP TABLE IF EXISTS Song;
-DROP TABLE IF EXISTS Artist;
-DROP TABLE IF EXISTS Producer;
-DROP TABLE IF EXISTS Writer;
+DROP TABLE IF EXISTS SongArtist, SongWriter, SongProducer, KaraokeFile, PriorityQueueInput, FIFOInput, FirstInQueue, PriorityQueue, PQUser, FIUser, File, Song, Artist, Producer, Writer;
 
-
---added--
-DROP TABLE IF EXISTS PriorityQueue;
-DROP TABLE IF EXISTS PQuser;
-DROP TABLE IF EXISTS FIUser;
-DROP TABLE IF EXISTS File;
-DROP TABLE IF EXISTS FIFOInput;
--- create tables -- 
 
 -----one to many relationships-----
 
@@ -98,14 +84,14 @@ CREATE TABLE PriorityQueue
 -- priority queue input -- julian 
 CREATE TABLE PriorityQueueInput
 (
-    PQID INT, --Foreign Key
-    FileName INT, --Foreign Key
-    PQUser INT AUTO_INCREMENT,
+    PQID INT, 
+    FileName INT,
+    PQUser INT,
     PQFName INT,
     PQLName INT,
     FOREIGN KEY (PQID) REFERENCES PriorityQueue(PQID),
-    FOREIGN KEY (File_Name) REFERENCES KaraokeFile(File_Name),
-    PRIMARY KEY (PQID, File_Name, PQUser)
+    FOREIGN KEY (FileName) REFERENCES File(FileName),
+    PRIMARY KEY (PQID, FileName, PQUser)
 );
 
 -- priority user -- juan
@@ -139,11 +125,11 @@ CREATE TABLE FirstInQueue
 CREATE TABLE FIFOInput
 (
     PID INT AUTO_INCREMENT PRIMARY KEY,
-    FUser INT NOT NULL,
-    FQID INT NOT NULL,
-    FileName INT NOT NULL, 
+    FUser INT,
+    FQID INT,
+    FileName INT, 
     FIFName VARCHAR(40),
     FILName VARCHAR(40),
-    FOREIGN KEY (FQID) REFERENCES FIFOQueue(ID),
-    FOREIGN KEY (FileName) REFERENCES File(ID)
+    FOREIGN KEY (FQID) REFERENCES FirstInQueue(FQID),
+    FOREIGN KEY (FileName) REFERENCES File(Filename)
 );
