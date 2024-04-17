@@ -11,13 +11,20 @@
       width: 300px;
       margin: auto;
     }
+    .form-group{
+      display: flex;
+    }
+    .form-group label{
+      margin-right: 10px;
+    }
   </style>
-  <div> 
-    <h2>Search</h2>
-    <form>
-    <label for="search">Enter a search:</label><br>
-    <input type"text" id="search" name="search"><br>
-    </form>
-  </div>
+    <h3>Find a song to sing along to!</h3>
+  <form method="get">
+     <div class="form-group">
+      <label for="search">Search:</label><br>
+      <input type="text" id="search" name="search"><br>
+      <input type="submit" value="Enter">
+     </div>
+  </form>
 </body>
 </html> 
