@@ -298,7 +298,7 @@ INSERT INTO SongArtist (ArtistID, SongID) VALUES
 (20, 19),   -- [Kenny Rogers] linked to [The Gambler]
 (21, 20),   -- [Aerosmith] linked to [Sweet Emotion]
 (22, 21),   -- [Afrika Bambaataa] linked to [Looking for the Perfect Beat]
-(23, 21),   -- [Afrika Bambaataa] linked to [Looking for the Perfect Beat]
+(23, 21),   -- [The Soulsonic Force] linked to [Looking for the Perfect Beat]
 (24, 22),   -- [Willie Nelson] linked to [City of New Orleans]
 (25, 23),   -- [Johnny Cash] linked to [Highwayman]
 (26, 24),   -- [Dio] linked to [Rainbow in the Dark]
