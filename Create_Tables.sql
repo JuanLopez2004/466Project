@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS SongArtist, SongWriter, SongProducer, KaraokeFile, PriorityQueueInput, FIFOInput, FirstInQueue, PriorityQueue, PQUser, FIUser, File, Song, Artist, Producer, Writer;
+DROP TABLE IF EXISTS SongArtist, SongWriter, SongProducer, PriorityQueueInput, FIFOInput, FirstInQueue, PriorityQueue, PQUser, FIUser, KaraokeFile, Song, Artist, Producer, Writer;
 
 -----one to many relationships-----
 
@@ -54,87 +54,63 @@ CREATE TABLE SongProducer
     FOREIGN KEY (ProducerID) REFERENCES Producer(ID)
 );
 
--- kfile -- julian
 CREATE TABLE KaraokeFile
 (
-    FileName INT,
-    SongID INT,
-    FOREIGN KEY (SongID) REFERENCES Song(ID),
-    PRIMARY KEY (FileName, SongID)
+    FileName INT AUTO_INCREMENT PRIMARY KEY,
+    SongID INT NOT NULL,
+    FOREIGN KEY (SongID) REFERENCES Song(ID)
 );
-
---file--
-
-CREATE TABLE File
-(
-    FileName INT AUTO_INCREMENT PRIMARY KEY
-);
-
--- priority queue -- juan
 
 CREATE TABLE PriorityQueue
 (
-    PQID INT PRIMARY KEY,
-    PTIME TIME,
-    Pledge INT
+    PQID INT AUTO_INCREMENT PRIMARY KEY,
+    Pledge INT(6) NOT NULL
 );
-
-
--- priority queue input -- julian 
-CREATE TABLE PriorityQueueInput
-(
-    PQID INT, 
-    FileName INT,
-    PQUser INT,
-    PQFName INT,
-    PQLName INT,
-    FOREIGN KEY (PQID) REFERENCES PriorityQueue(PQID),
-    FOREIGN KEY (FileName) REFERENCES File(FileName),
-    PRIMARY KEY (PQID, FileName, PQUser)
-);
-
--- priority user -- juan
 
 CREATE TABLE PQUser
 (
     PQUser INT AUTO_INCREMENT PRIMARY KEY,
-    PQ_Fname VARCHAR(40),
-    PG_Lname VARCHAR(40)
+    PQ_Fname VARCHAR(40) NOT NULL,
+    PG_Lname VARCHAR(40) NOT NULL
 );
-
--- fifo user --  juan
 
 CREATE TABLE FIUser
 (
     FIUser INT AUTO_INCREMENT PRIMARY KEY,
-    FI_FName VARCHAR(40),
-    FI_LNAME VARCHAR(40)
+    FI_FName VARCHAR(40) NOT NULL,
+    FI_LNAME VARCHAR(40) NOT NULL
 );
 
--- fifo queue --  julian 
 CREATE TABLE FirstInQueue
 (
-    FQID INT,
-    Time INT,
-    PRIMARY KEY (FQID)
+    FQID INT AUTO_INCREMENT PRIMARY KEY
 );
-
--- fifo queue input -- juan
 
 CREATE TABLE FIFOInput
 (
-    PID INT AUTO_INCREMENT PRIMARY KEY,
-    FUser INT,
-    FQID INT,
-    FileName INT, 
-    FIFName VARCHAR(40),
-    FILName VARCHAR(40),
+    FIUser INT NOT NULL,
+    FQID INT NOT NULL,
+    FileName INT NOT NULL,
+    Time TIME,
+    FOREIGN KEY (FIUser) REFERENCES FIUser(FIUser),
     FOREIGN KEY (FQID) REFERENCES FirstInQueue(FQID),
-    FOREIGN KEY (FileName) REFERENCES File(Filename)
+    FOREIGN KEY (FileName) REFERENCES KaraokeFile(FileName),
+    PRIMARY KEY (FIUser, FQID, FIlename)
+);
+
+CREATE TABLE PriorityQueueInput
+(
+    PQID INT NOT NULL, 
+    FileName INT NOT NULL,
+    PQUser INT NOT NULL,
+    Time TIME,
+    FOREIGN KEY (PQID) REFERENCES PriorityQueue(PQID),
+    FOREIGN KEY (FileName) REFERENCES KaraokeFile(FileName),
+    FOREIGN KEY (PQUser) REFERENCES PQUser(PQUser),
+    PRIMARY KEY (PQID, FileName, PQUser)
 );
 
 --insertion & linkage--
-
 
 ---insert song title---
 INSERT INTO Song (ID, Title) VALUES 
