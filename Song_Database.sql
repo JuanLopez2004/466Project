@@ -1,65 +1,3 @@
-DROP TABLE IF EXISTS SongArtist;
-DROP TABLE IF EXISTS SongWriter;
-DROP TABLE IF EXISTS SongProducer;
-DROP TABLE IF EXISTS Song;
-DROP TABLE IF EXISTS Artist;
-DROP TABLE IF EXISTS Producer;
-DROP TABLE IF EXISTS Writer;
-
------one to many relationships-----
-
-CREATE TABLE Song
-(
-    ID INT PRIMARY KEY,
-    Title VARCHAR(30)
-);
-
-CREATE TABLE Artist
-(
-    ID INT PRIMARY KEY,
-    Artist_Name VARCHAR(30)
-);
-
-CREATE TABLE Producer 
-(
-    ID INT PRIMARY KEY,
-    Prod_Name VARCHAR(30)
-);
-
-CREATE TABLE Writer
-(
-    ID INT PRIMARY KEY,
-    Writer_Name VARCHAR(30)
-);
-
---many to many relationships--
-
-CREATE TABLE SongArtist
-(
-    SongID INT,
-    ArtistID INT,
-    FOREIGN KEY (SongID) REFERENCES Song(ID),
-    FOREIGN KEY (ArtistID) REFERENCES Artist(ID),
-    PRIMARY KEY (SongID, ArtistID)
-);
-
-CREATE TABLE SongWriter 
-(
-    SongID INTEGER,
-    WriterID INTEGER,
-    FOREIGN KEY (SongID) REFERENCES Song(ID),
-    FOREIGN KEY (WriterID) REFERENCES Writer(ID),
-    PRIMARY KEY (SongID, WriterID)
-);
-
-CREATE TABLE SongProducer 
-(
-    SongID INT,
-    ProducerID INT,
-    FOREIGN KEY (SongID) REFERENCES Song(ID),
-    FOREIGN KEY (ProducerID) REFERENCES Producer(ID)
-);
-
 ---insert song title---
 INSERT INTO Song (ID, Title) VALUES 
     (1, 'Go With the Flow'),
@@ -192,7 +130,7 @@ INSERT INTO Writer (ID, Writer_Name) VALUES
     (15, 'Martin Bresso'),              -- (3) Stupid Love
     (16, 'Julian Casablancas'),         -- (4) Reptilia
     (17, 'Ozzy Osbourne'),              -- (5) Paranoid
-    (18, 'Tony Iommi'),                 -- (5) Paranoid
+    (18, 'Tony Lommi'),                 -- (5) Paranoid
     (19, 'Geezer Butler'),              -- (5) Paranoid
     (20, 'Bill Ward'),                  -- (5) Paranoid
     (21, 'Eddie Clarke'),               -- (6) Dirty Love
@@ -263,193 +201,208 @@ INSERT INTO Writer (ID, Writer_Name) VALUES
     (86, 'John Garrett III'),           -- (30) Of The Night
     (87, 'Thea Austin');                -- (30) Of The Night
 
---show all 4 main tables--
-
-SELECT * FROM Artist;
-SELECT * FROM Song;
-SELECT * FROM Producer;
-SELECT * FROM Writer;
-
 --###########################################################################
 -- linking tables
 --###########################################################################
 
 -- Linking Song with Artist
 INSERT INTO SongArtist (ArtistID, SongID) VALUES 
-(1, 1),     -- [Queens of the Stone Age] linked to [Go with the Flow]
-(2, 2),     -- [The Weeknd] linked to [Sacrifice]
-(3, 3),     -- [Lady Gaga] linked to [Stupid Love]
-(4, 4),     -- [The Strokes] linked to [Reptilia]
-(5, 5),     -- [Black Sabbath] linked to [Paranoid]
-(6, 6),     -- [Motörhead] linked to [Dirty Love]
-(7, 7),     -- [Jeff Rosenstock] linked to [9/10]
-(8, 8),     -- [Johnny Foreigner] linked to [Eyes Wide Terrified]
-(9, 9),     -- [Streetlight Manifesto] linked to [Saddest Song]
-(10, 10),   -- [Modern Baseball] linked to [Apartment]
-(11, 11),   -- [American Football] linked to [Never Meant]
-(12, 12),   -- [Fatter Than Albert] linked to [Fever and Chills]
-(13, 13),   -- [Radiohead] linked to [The Bends]
-(14, 14),   -- [Crystal Castles] linked to [Char]
-(15, 15),   -- [Zedd] linked to [Clarity]
-(16, 15),   -- [Foxes] linked to [Clarity]
-(17, 16),   -- [Fetty Wap] linked to [Trap Queen]
-(18, 17),   -- [Fleshwater] linked to [Closet]
-(19, 18),   -- [Bob Marley & The Wailers] linked to [Jamming]
-(20, 19),   -- [Kenny Rogers] linked to [The Gambler]
-(21, 20),   -- [Aerosmith] linked to [Sweet Emotion]
-(22, 21),   -- [Afrika Bambaataa] linked to [Looking for the Perfect Beat]
-(23, 21),   -- [The Soulsonic Force] linked to [Looking for the Perfect Beat]
-(24, 22),   -- [Willie Nelson] linked to [City of New Orleans]
-(25, 23),   -- [Johnny Cash] linked to [Highwayman]
-(26, 24),   -- [Dio] linked to [Rainbow in the Dark]
-(27, 25),   -- [David Guetta] linked to [Dangerous]
-(28, 26),   -- [Panic At The Disco!] linked to [I Write Sins Not Tragedies]
-(29, 27),   -- [Dawid Podsiadło] linked to [Pastempomat]
-(30, 28),   -- [Disturbed] linked to [Immortalized]
-(31, 29),   -- [Andrea Bocelli] linked to [Canto Della Terra]
-(32, 30);   -- [Bastile] linked to [Of The Night]
+    (1, 1),     -- [Queens of the Stone Age] linked to [Go with the Flow]
+    (2, 2),     -- [The Weeknd] linked to [Sacrifice]
+    (3, 3),     -- [Lady Gaga] linked to [Stupid Love]
+    (4, 4),     -- [The Strokes] linked to [Reptilia]
+    (5, 5),     -- [Black Sabbath] linked to [Paranoid]
+    (6, 6),     -- [Motörhead] linked to [Dirty Love]
+    (7, 7),     -- [Jeff Rosenstock] linked to [9/10]
+    (8, 8),     -- [Johnny Foreigner] linked to [Eyes Wide Terrified]
+    (9, 9),     -- [Streetlight Manifesto] linked to [Saddest Song]
+    (10, 10),   -- [Modern Baseball] linked to [Apartment]
+    (11, 11),   -- [American Football] linked to [Never Meant]
+    (12, 12),   -- [Fatter Than Albert] linked to [Fever and Chills]
+    (13, 13),   -- [Radiohead] linked to [The Bends]
+    (14, 14),   -- [Crystal Castles] linked to [Char]
+    (15, 15),   -- [Zedd] linked to [Clarity]
+    (16, 15),   -- [Foxes] linked to [Clarity]
+    (17, 16),   -- [Fetty Wap] linked to [Trap Queen]
+    (18, 17),   -- [Fleshwater] linked to [Closet]
+    (19, 18),   -- [Bob Marley & The Wailers] linked to [Jamming]
+    (20, 19),   -- [Kenny Rogers] linked to [The Gambler]
+    (21, 20),   -- [Aerosmith] linked to [Sweet Emotion]
+    (22, 21),   -- [Afrika Bambaataa] linked to [Looking for the Perfect Beat]
+    (23, 21),   -- [The Soulsonic Force] linked to [Looking for the Perfect Beat]
+    (24, 22),   -- [Willie Nelson] linked to [City of New Orleans]
+    (25, 23),   -- [Johnny Cash] linked to [Highwayman]
+    (26, 24),   -- [Dio] linked to [Rainbow in the Dark]
+    (27, 25),   -- [David Guetta] linked to [Dangerous]
+    (28, 26),   -- [Panic At The Disco!] linked to [I Write Sins Not Tragedies]
+    (29, 27),   -- [Dawid Podsiadło] linked to [Pastempomat]
+    (30, 28),   -- [Disturbed] linked to [Immortalized]
+    (31, 29),   -- [Andrea Bocelli] linked to [Canto Della Terra]
+    (32, 30);   -- [Bastile] linked to [Of The Night]
 
 
 -- Linking Song with Producer
 INSERT INTO SongProducer (ProducerID, SongID) VALUES 
-(1, 1),     -- [Josh Homme] linked to [Go with the Flow]
-(2, 1),     -- [Eric Valentine] linked to [Go with the Flow]
-(3, 2),     -- [Swedish House Mafia] linked to [Sacrifice]
-(4, 2),     -- [Max Martin] linked to [Sacrifice]
-(5, 2),     -- [Oscar Holter] linked to [Sacrifice]
-(6, 2),     -- [The Weeknd] linked to [Sacrifice]
-(7, 2),     -- [Carl Nordström] linked to [Sacrifice]
-(8, 3),     -- [BloodPop] linked to [Stupid Love]
-(9, 3),     -- [Tchami] linked to [Stupid Love]
-(10, 3),    -- [Max Martin] linked to [Stupid Love]
-(11, 4),    -- [Gordan Raphael] linked to [Reptilia]
-(12, 5),    -- [Rodger Bain] linked to [Paranoid]
-(13, 6),    -- [Vic Maile] linked to [Dirty Love]
-(14, 7),    -- [Jack Shirley] linked to [9/10]
-(15, 8),    -- [Gene "Machine" Freeman] linked to [Eyes Wide Terrified]
-(16, 9),    -- [Tomas Kalnoky] linked to [Saddest Song]
-(17, 10),   -- [Modern Baseball] linked to [Apartment]
-(18, 11),   -- [Brendan Gamble] linked to [Never Meant]
-(19, 12),   -- [Nick Lauve] linked to [Fever and Chills]
-(20, 12),   -- [Matt Aguiluz] linked to [Fever and Chills]
-(21, 13),   -- [John Leckie] linked to [The Bends]
-(22, 14),   -- [Ethan Kath] linked to [Char]
-(23, 15),   -- [Zedd] linked to [Clarity]
-(24, 15),   -- [Zedd] linked to [Clarity]
-(25, 16),   -- [Tony Fadd] linked to [Trap Queen]
-(26, 18),   -- [Kurt Ballou] linked to [Closet]
-(27, 19),   -- [Stephen Marley] linked to [Jamming]
-(28, 20),   -- [Larry Butler] linked to [The Gambler]
-(29, 21),   -- [Jack Douglas] linked to [Sweet Emotion]
-(30, 21),   -- [Arthur Baker] linked to [Looking for the Perfect Beat]
-(31, 21),   -- [John Robie] linked to [Looking for the Perfect Beat]
-(32, 22),   -- [Chips Moman] linked to [City of New Orleans]
-(33, 23),   -- [Chips Moman] linked to [Highwayman]
-(34, 24),   -- [Ronnie James Dio] linked to [Rainbow in the Dark]
-(35, 25),   -- [Giorgio Tuinfort] linked to [Dangerous]
-(36, 25),   -- [Sam Martin] linked to [Dangerous]
-(37, 25),   -- [Jason Evigan] linked to [Dangerous]
-(38, 26),   -- [Matt Squire] linked to [I Write Sins Not Tragedies]
-(39, 27),   -- [Bogdan Kondracki] linked to [Pastempomat]
-(40, 28),   -- [Kevin Churko] linked to [Immortalized]
-(41, 29),   -- [Mauro Malavasi] linked to [Canto Della Terra]
-(42, 30);   -- [Dan Smith] linked to [Of The Night]
+    (1, 1),     -- [Josh Homme] linked to [Go with the Flow]
+    (2, 1),     -- [Eric Valentine] linked to [Go with the Flow]
+    (3, 2),     -- [Swedish House Mafia] linked to [Sacrifice]
+    (4, 2),     -- [Max Martin] linked to [Sacrifice]
+    (5, 2),     -- [Oscar Holter] linked to [Sacrifice]
+    (6, 2),     -- [The Weeknd] linked to [Sacrifice]
+    (7, 2),     -- [Carl Nordström] linked to [Sacrifice]
+    (8, 3),     -- [BloodPop] linked to [Stupid Love]
+    (9, 3),     -- [Tchami] linked to [Stupid Love]
+    (10, 3),    -- [Max Martin] linked to [Stupid Love]
+    (11, 4),    -- [Gordan Raphael] linked to [Reptilia]
+    (12, 5),    -- [Rodger Bain] linked to [Paranoid]
+    (13, 6),    -- [Vic Maile] linked to [Dirty Love]
+    (14, 7),    -- [Jack Shirley] linked to [9/10]
+    (15, 8),    -- [Gene "Machine" Freeman] linked to [Eyes Wide Terrified]
+    (16, 9),    -- [Tomas Kalnoky] linked to [Saddest Song]
+    (17, 10),   -- [Modern Baseball] linked to [Apartment]
+    (18, 11),   -- [Brendan Gamble] linked to [Never Meant]
+    (19, 12),   -- [Nick Lauve] linked to [Fever and Chills]
+    (20, 12),   -- [Matt Aguiluz] linked to [Fever and Chills]
+    (21, 13),   -- [John Leckie] linked to [The Bends]
+    (22, 14),   -- [Ethan Kath] linked to [Char]
+    (23, 15),   -- [Zedd] linked to [Clarity]
+    (24, 15),   -- [Zedd] linked to [Clarity]
+    (25, 16),   -- [Tony Fadd] linked to [Trap Queen]
+    (26, 18),   -- [Kurt Ballou] linked to [Closet]
+    (27, 19),   -- [Stephen Marley] linked to [Jamming]
+    (28, 20),   -- [Larry Butler] linked to [The Gambler]
+    (29, 21),   -- [Jack Douglas] linked to [Sweet Emotion]
+    (30, 21),   -- [Arthur Baker] linked to [Looking for the Perfect Beat]
+    (31, 21),   -- [John Robie] linked to [Looking for the Perfect Beat]
+    (32, 22),   -- [Chips Moman] linked to [City of New Orleans]
+    (33, 23),   -- [Chips Moman] linked to [Highwayman]
+    (34, 24),   -- [Ronnie James Dio] linked to [Rainbow in the Dark]
+    (35, 25),   -- [Giorgio Tuinfort] linked to [Dangerous]
+    (36, 25),   -- [Sam Martin] linked to [Dangerous]
+    (37, 25),   -- [Jason Evigan] linked to [Dangerous]
+    (38, 26),   -- [Matt Squire] linked to [I Write Sins Not Tragedies]
+    (39, 27),   -- [Bogdan Kondracki] linked to [Pastempomat]
+    (40, 28),   -- [Kevin Churko] linked to [Immortalized]
+    (41, 29),   -- [Mauro Malavasi] linked to [Canto Della Terra]
+    (42, 30);   -- [Dan Smith] linked to [Of The Night]
 
 
 -- Linking Song with Writer
 INSERT INTO SongWriter (WriterID, SongID) VALUES 
-(1, 1),     -- [Josh Homme] linked to [Go with the Flow]
-(2, 1),     -- [Nick Oliver] linked to [Go with the Flow]
-(3, 2),     -- [Max Martin] linked to [Sacrifice]
-(4, 2),     -- [Abel Tesfaye] linked to [Sacrifice]
-(5, 2),     -- [Alex Hedfors] linked to [Sacrifice]
-(6, 2),     -- [Carl Nordstrom] linked to [Sacrifice]
-(7, 2),     -- [Kevin Duane Mccord] linked to [Sacrifice]
-(8, 2),     -- [Oscar Holter] linked to [Sacrifice]
-(9, 2),     -- [Sebastian Ingrosso] linked to [Sacrifice]
-(10, 2),    -- [Steve Angello] linked to [Sacrifice]
-(11, 3),    -- [BloodPop] linked to [Stupid Love]
-(12, 3),    -- [Max Martin] linked to [Stupid Love]
-(13, 3),    -- [Ely Rise] linked to [Stupid Love]
-(14, 3),    -- [Lady Gaga] linked to [Stupid Love]
-(15, 3),    -- [Martin Bresso] linked to [Stupid Love]
-(16, 4),    -- [Julian Casablancas] linked to [Reptilia]
-(17, 5),    -- [Ozzy Osbourne] linked to [Paranoid]
-(18, 5),    -- [Tony Lommi] linked to [Paranoid]
-(19, 5),    -- [Geezer Butler] linked to [Paranoid]
-(20, 5),    -- [Bill Ward] linked to [Paranoid]
-(21, 6),    -- [Eddie Clarke] linked to [Dirty Love]
-(22, 6),    -- [Lemmy Kilmister] linked to [Dirty Love]
-(23, 6),    -- [Phil Taylor] linked to [Dirty Love]
-(24, 7),    -- [Jeff Rosenstock] linked to [9/10]
-(25, 8),    -- [Alexi Berrow] linked to [Eyes Wide Terrified]
-(26, 9),    -- [Tomas Kalnoky] linked to [Saddest Song]
-(27, 10),   -- [Brendan Taylor Francis] linked to [Apartment]
-(28, 10),   -- [Jacob Starnes Ewald] linked to [Apartment]
-(29, 10),   -- [Ian Daniel Farmer] linked to [Apartment]
-(30, 10),   -- [Sean Edward Huber] linked to [Apartment]
-(31, 11),   -- [Micheal Tomas Kinsella] linked to [Never Meant]
-(32, 11),   -- [Steven Joseph Lamos] linked to [Never Meant]
-(33, 11),   -- [Stephen Michael Holmes] linked to [Never Meant]
-(34, 12),   -- [Fatter Than Albert] linked to [Fever and Chills]
-(35, 13),   -- [Thom Yorke] linked to [The Bends]
-(36, 13),   -- [Jonny Greenwood] linked to [The Bends]
-(37, 13),   -- [Ed OBrien] linked to [The Bends]
-(38, 13),   -- [Colin Greenwood] linked to [The Bends]
-(39, 13),   -- [Philip Selway] linked to [The Bends]
-(40, 14),   -- [Ethan Kath] linked to [Char]
-(41, 15),   -- [Anton Zaslavski] linked to [Clarity]
-(42, 15),   -- [Holly Hafermann] linked to [Clarity]
-(43, 15),   -- [Matthew Koma] linked to [Clarity]
-(44, 15),   -- [Porter Robinson] linked to [Clarity]
-(45, 16),   -- [Willie Maxwell] linked to [Trap Queen]
-(46, 17),   -- [Anthony Didio] linked to [Closet]
-(47, 17),   -- [Jeremy Martin] linked to [Closet]
-(48, 17),   -- [Mirsy] linked to [Closet]
-(49, 17),   -- [Matt Wood] linked to [Closet]
-(50, 18),   -- [Bob Marley] linked to [Jamming]
-(51, 19),   -- [Don Alan Schlitz Jr] linked to [The Gambler]
-(52, 20),   -- [Rod Temperton] linked to [Sweet Emotion]
-(53, 20),   -- [Steven Tyler] linked to [Sweet Emotion]
-(54, 20),   -- [Tom Hamilton] linked to [Sweet Emotion]
-(55, 21),   -- [A Baker] linked to [Looking for the Perfect Beat]
-(56, 21),   -- [Afrika Bambaataa] linked to [Looking for the Perfect Beat]
-(57, 21),   -- [Arthur Baker] linked to [Looking for the Perfect Beat]
-(58, 21),   -- [E Williams] linked to [Looking for the Perfect Beat]
-(59, 21),   -- [J Miller] linked to [Looking for the Perfect Beat]
-(60, 21),   -- [J Robie] linked to [Looking for the Perfect Beat]
-(61, 21),   -- [R Allen] linked to [Looking for the Perfect Beat]
-(62, 21),   -- [The Soulsonic Force] linked to [Looking for the Perfect Beat]
-(63, 22),   -- [S Goodman] linked to [City of New Orleans]
-(64, 23),   -- [Jimmy Webb] linked to [Highwayman]
-(65, 24),   -- [Jimmy Bain] linked to [Rainbow in the Dark]
-(66, 24),   -- [Ronnie James Dio] linked to [Rainbow in the Dark]
-(67, 24),   -- [Vincent Appice] linked to [Rainbow in the Dark]
-(68, 24),   -- [Vinny Appice] linked to [Rainbow in the Dark]
-(69, 24),   -- [Vivian Campbell] linked to [Rainbow in the Dark]
-(70, 25),   -- [Giorgio Tuinfort] linked to [Dangerous]
-(71, 25),   -- [Sam Martin] linked to [Dangerous]
-(72, 25),   -- [Jason Evigan] linked to [Dangerous]
-(73, 25),   -- [Lindy Robbins] linked to [Dangerous]
-(74, 26),   -- [Brendon Urie] linked to [I Write Sins Not Tragedies]
-(75, 26),   -- [Ryan Ross] linked to [I Write Sins Not Tragedies]
-(76, 26),   -- [Spencer Smith] linked to [I Write Sins Not Tragedies]
-(77, 27),   -- [Dawid Podsiadlo] linked to [Pastempomat]
-(78, 27),   -- [Bogdan Kondracki] linked to [Pastempomat]
-(79, 28),   -- [Kevin Churko] linked to [Immortalized]
-(80, 28),   -- [Dan Donegan] linked to [Immortalized]
-(81, 28),   -- [Mike Wengren] linked to [Immortalized]
-(82, 28),   -- [David Draiman] linked to [Immortalized]
-(83, 29),   -- [Francesco Sartori] linked to [Canto Della Terra]
-(84, 29),   -- [Lucio Quarantotto] linked to [Canto Della Terra]
-(85, 30),   -- [Benito Benitez] linked to [Of The Night]
-(86, 30),   -- [John Garrett III] linked to [Of The Night]
-(87, 30);   -- [Thea Austin] linked to [Of The Night]
+    (1, 1),     -- [Josh Homme] linked to [Go with the Flow]
+    (2, 1),     -- [Nick Oliver] linked to [Go with the Flow]
+    (3, 2),     -- [Max Martin] linked to [Sacrifice]
+    (4, 2),     -- [Abel Tesfaye] linked to [Sacrifice]
+    (5, 2),     -- [Alex Hedfors] linked to [Sacrifice]
+    (6, 2),     -- [Carl Nordstrom] linked to [Sacrifice]
+    (7, 2),     -- [Kevin Duane Mccord] linked to [Sacrifice]
+    (8, 2),     -- [Oscar Holter] linked to [Sacrifice]
+    (9, 2),     -- [Sebastian Ingrosso] linked to [Sacrifice]
+    (10, 2),    -- [Steve Angello] linked to [Sacrifice]
+    (11, 3),    -- [BloodPop] linked to [Stupid Love]
+    (12, 3),    -- [Max Martin] linked to [Stupid Love]
+    (13, 3),    -- [Ely Rise] linked to [Stupid Love]
+    (14, 3),    -- [Lady Gaga] linked to [Stupid Love]
+    (15, 3),    -- [Martin Bresso] linked to [Stupid Love]
+    (16, 4),    -- [Julian Casablancas] linked to [Reptilia]
+    (17, 5),    -- [Ozzy Osbourne] linked to [Paranoid]
+    (18, 5),    -- [Tony Lommi] linked to [Paranoid]
+    (19, 5),    -- [Geezer Butler] linked to [Paranoid]
+    (20, 5),    -- [Bill Ward] linked to [Paranoid]
+    (21, 6),    -- [Eddie Clarke] linked to [Dirty Love]
+    (22, 6),    -- [Lemmy Kilmister] linked to [Dirty Love]
+    (23, 6),    -- [Phil Taylor] linked to [Dirty Love]
+    (24, 7),    -- [Jeff Rosenstock] linked to [9/10]
+    (25, 8),    -- [Alexi Berrow] linked to [Eyes Wide Terrified]
+    (26, 9),    -- [Tomas Kalnoky] linked to [Saddest Song]
+    (27, 10),   -- [Brendan Taylor Francis] linked to [Apartment]
+    (28, 10),   -- [Jacob Starnes Ewald] linked to [Apartment]
+    (29, 10),   -- [Ian Daniel Farmer] linked to [Apartment]
+    (30, 10),   -- [Sean Edward Huber] linked to [Apartment]
+    (31, 11),   -- [Micheal Tomas Kinsella] linked to [Never Meant]
+    (32, 11),   -- [Steven Joseph Lamos] linked to [Never Meant]
+    (33, 11),   -- [Stephen Michael Holmes] linked to [Never Meant]
+    (34, 12),   -- [Fatter Than Albert] linked to [Fever and Chills]
+    (35, 13),   -- [Thom Yorke] linked to [The Bends]
+    (36, 13),   -- [Jonny Greenwood] linked to [The Bends]
+    (37, 13),   -- [Ed OBrien] linked to [The Bends]
+    (38, 13),   -- [Colin Greenwood] linked to [The Bends]
+    (39, 13),   -- [Philip Selway] linked to [The Bends]
+    (40, 14),   -- [Ethan Kath] linked to [Char]
+    (41, 15),   -- [Anton Zaslavski] linked to [Clarity]
+    (42, 15),   -- [Holly Hafermann] linked to [Clarity]
+    (43, 15),   -- [Matthew Koma] linked to [Clarity]
+    (44, 15),   -- [Porter Robinson] linked to [Clarity]
+    (45, 16),   -- [Willie Maxwell] linked to [Trap Queen]
+    (46, 17),   -- [Anthony Didio] linked to [Closet]
+    (47, 17),   -- [Jeremy Martin] linked to [Closet]
+    (48, 17),   -- [Mirsy] linked to [Closet]
+    (49, 17),   -- [Matt Wood] linked to [Closet]
+    (50, 18),   -- [Bob Marley] linked to [Jamming]
+    (51, 19),   -- [Don Alan Schlitz Jr] linked to [The Gambler]
+    (52, 20),   -- [Rod Temperton] linked to [Sweet Emotion]
+    (53, 20),   -- [Steven Tyler] linked to [Sweet Emotion]
+    (54, 20),   -- [Tom Hamilton] linked to [Sweet Emotion]
+    (55, 21),   -- [A Baker] linked to [Looking for the Perfect Beat]
+    (56, 21),   -- [Afrika Bambaataa] linked to [Looking for the Perfect Beat]
+    (57, 21),   -- [Arthur Baker] linked to [Looking for the Perfect Beat]
+    (58, 21),   -- [E Williams] linked to [Looking for the Perfect Beat]
+    (59, 21),   -- [J Miller] linked to [Looking for the Perfect Beat]
+    (60, 21),   -- [J Robie] linked to [Looking for the Perfect Beat]
+    (61, 21),   -- [R Allen] linked to [Looking for the Perfect Beat]
+    (62, 21),   -- [The Soulsonic Force] linked to [Looking for the Perfect Beat]
+    (63, 22),   -- [S Goodman] linked to [City of New Orleans]
+    (64, 23),   -- [Jimmy Webb] linked to [Highwayman]
+    (65, 24),   -- [Jimmy Bain] linked to [Rainbow in the Dark]
+    (66, 24),   -- [Ronnie James Dio] linked to [Rainbow in the Dark]
+    (67, 24),   -- [Vincent Appice] linked to [Rainbow in the Dark]
+    (68, 24),   -- [Vinny Appice] linked to [Rainbow in the Dark]
+    (69, 24),   -- [Vivian Campbell] linked to [Rainbow in the Dark]
+    (70, 25),   -- [Giorgio Tuinfort] linked to [Dangerous]
+    (71, 25),   -- [Sam Martin] linked to [Dangerous]
+    (72, 25),   -- [Jason Evigan] linked to [Dangerous]
+    (73, 25),   -- [Lindy Robbins] linked to [Dangerous]
+    (74, 26),   -- [Brendon Urie] linked to [I Write Sins Not Tragedies]
+    (75, 26),   -- [Ryan Ross] linked to [I Write Sins Not Tragedies]
+    (76, 26),   -- [Spencer Smith] linked to [I Write Sins Not Tragedies]
+    (77, 27),   -- [Dawid Podsiadlo] linked to [Pastempomat]
+    (78, 27),   -- [Bogdan Kondracki] linked to [Pastempomat]
+    (79, 28),   -- [Kevin Churko] linked to [Immortalized]
+    (80, 28),   -- [Dan Donegan] linked to [Immortalized]
+    (81, 28),   -- [Mike Wengren] linked to [Immortalized]
+    (82, 28),   -- [David Draiman] linked to [Immortalized]
+    (83, 29),   -- [Francesco Sartori] linked to [Canto Della Terra]
+    (84, 29),   -- [Lucio Quarantotto] linked to [Canto Della Terra]
+    (85, 30),   -- [Benito Benitez] linked to [Of The Night]
+    (86, 30),   -- [John Garrett III] linked to [Of The Night]
+    (87, 30);   -- [Thea Austin] linked to [Of The Night]
 
--- test many to many relationships --
+--"10 users, and 5 of them signed up to sing in each of the two queues" in the SQL script that inserts data--
 
-SELECT * FROM SongProducer;
+INSERT INTO PQUser(PQ_Fname, PQ_Lname) VALUES
+    ('Chris', 'Benson'),
+    ('Ihate', 'Myself'),
+    ('Tavish', 'DeGroot'),
+    ('Sonar', 'Bonar'),
+    ('Qurt', 'WcWahon');
 
-SELECT * FROM SongArtist;
+INSERT INTO FIUser(FI_Fname, FI_Lname) VALUES
+    ('Lisa', 'Freeman'),
+    ('OJ', 'Simpson'),
+    ('LeBron', 'James'),
+    ('LeGrind', 'NevaEnds'),
+    ('Rocky', 'Lombardi');
 
-SELECT * FROM SongWriter;
+INSERT INTO FIFOInput (FIUser, FQID, FileName, Time) VALUES
+    (1, 1, 1, '10:00:00'),
+    (2, 2, 2, '12:00:00'),
+    (3, 3, 3, '13:00:00'),
+    (4, 4, 4, '15:00:00'),
+    (5, 5, 5, '18:00:00');
+
+INSERT INTO PriorityQueueInput (PQID, FileName, PQUser, Time) VALUES
+    (1, 1, 1, '14:00:00'),
+    (2, 2, 2, '17:00:00'),
+    (3, 3, 3, '09:00:00'),
+    (4, 4, 4, '07:00:00'),
+    (5, 5, 5, '14:00:00');
