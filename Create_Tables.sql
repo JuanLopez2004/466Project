@@ -497,3 +497,33 @@ INSERT INTO SongWriter (WriterID, SongID) VALUES
 (85, 30),   -- [Benito Benitez] linked to [Of The Night]
 (86, 30),   -- [John Garrett III] linked to [Of The Night]
 (87, 30);   -- [Thea Austin] linked to [Of The Night]
+
+--"10 users, and 5 of them signed up to sing in each of the two queues" in the SQL script that inserts data--
+
+INSERT INTO PQUser(PQ_Fname, PQ_Lname) VALUES
+('Chris', 'Benson'),
+('Ihate', 'Myself'),
+('Tavish', 'DeGroot'),
+('Sonar', 'Bonar'),
+('Qurt', 'WcWahon');
+
+INSERT INTO FIUser(FI_Fname, FI_Lname) VALUES
+('Lisa', 'Freeman'),
+('OJ', 'Simpson'),
+('LeBron', 'James'),
+('LeGrind', 'NevaEnds'),
+('Rocky', 'Lombardi');
+
+INSERT INTO FIFOInput (FIUser, FQID, FileName, Time) VALUES
+(1, 1, 1, '10:00:00'),
+(2, 2, 2, '12:00:00'),
+(3, 3, 3, '13:00:00'),
+(4, 4, 4, '15:00:00'),
+(5, 5, 5, '18:00:00');
+
+INSERT INTO PriorityQueueInput (PQID, FileName, PQUser, Time) VALUES
+(1, 1, 1, '14:00:00'),
+(2, 2, 2, '17:00:00'),
+(3, 3, 3, '09:00:00'),
+(4, 4, 4, '07:00:00'),
+(5, 5, 5, '17:03:00');
