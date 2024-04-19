@@ -415,34 +415,25 @@ INSERT INTO KaraokeFile (FileName, SongID) VALUES
 
 
 
-
 --"10 users, and 5 of them signed up to sing in each of the two queues" in the SQL script that inserts data--
 
 INSERT INTO PQUser (PQ_FName, PQ_LName, Pledge) VALUES
     ('Chris', 'Benson', 50),
-    ('Ihate', 'Myself', 30),
-    ('Tavish', 'DeGroot', 40),
-    ('Sonar', 'Bonar', 20),
-    ('Qurt', 'WcWahon', 10);
+    ('asdf', 'dafdsfa', 420),
+    ('Huge', 'Mungus', 69);
 
 INSERT INTO FIUser (FI_FName, FI_LName) VALUES
-    ('Lisa', 'Freeman'),
-    ('OJ', 'Simpson'),
-    ('LeBron', 'James'),
-    ('LeGrind', 'NevaEnds'),
-    ('Rocky', 'Lombardi');
+    ('Rocky', 'Lombardi'),
+    ('sdfds', 'asdfasd'),
+    ('Racing', 'Car');
 
 
-INSERT INTO FIFOInput (FileName, Time) VALUES
-    (1, '10:00:00'),
-    (2, '12:00:00'),
-    (3, '13:00:00'),
-    (4, '15:00:00'),
-    (5, '18:00:00');
+INSERT INTO FIFOQueue (FIID, FileName, Time) VALUES
+    (1, 1, '10:00:00'),
+    (2, 2, '09:03:13'),
+    (3, 3, '08:12:14');
 
-INSERT INTO PriorityQueueInput (FileName, Time) VALUES
-    (1, '14:00:00'),
-    (2, '17:00:00'),
-    (3, '09:00:00'),
-    (4, '07:00:00'),
-    (5, '14:00:00');
+INSERT INTO PriorityQueue (PQID, FileName, Time) VALUES
+    (1, 4, '14:00:00'),
+    (2, 5, '05:00:00'),
+    (3, 6, '03:31:41');
