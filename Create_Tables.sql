@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS SongArtist, SongWriter, SongProducer, PriorityQueueInput, FIFOInput, FirstInQueue, PriorityQueue, PQUser, FIUser, KaraokeFile, Song, Artist, Producer, Writer;
+DROP TABLE IF EXISTS SongArtist, SongWriter, SongProducer, FIFOQueue, PriorityQueue, KaraokeFile, PQUser, FIUser, Song, Artist, Producer, Writer;
 
 -----one to many relationships-----
 
