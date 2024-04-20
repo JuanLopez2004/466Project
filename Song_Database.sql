@@ -1,205 +1,206 @@
 ---insert song title---
-INSERT INTO Song (ID, Title) VALUES 
-    (1, 'Go With the Flow'),
-    (2, 'Sacrifice'),
-    (3, 'Stupid Love'),
-    (4, 'Reptilia'),
-    (5, 'Paranoid'),
-    (6, 'Dirty Love'),  
-    (7, '9/10'),
-    (8, 'Eyes Wide Terrified'),
-    (9, 'Saddest Song'),
-    (10, 'Apartment'),
-    (11, 'Never Meant'),
-    (12, 'Fever and Chills'), 
-    (13, 'The Bends'),
-    (14, 'Char'),
-    (15, 'Clarity'),
-    (16, 'Trap Queen'),
-    (17, 'Closet'),
-    (18, 'Jamming'), 
-    (19, 'The Gambler'),
-    (20, 'Sweet Emotion'),
-    (21, 'Looking for the Perfect Beat'),
-    (22, 'City of New Orleans'),
-    (23, 'Highwayman'),
-    (24, 'Rainbow in the Dark'), 
-    (25, 'Dangerous'),
-    (26, 'I Write Sins Not Tragedies'),
-    (27, 'Pastempomat'),
-    (28, 'Immortalized'),
-    (29, 'Canto Della Terra'),
-    (30, 'Of The Night');
+
+INSERT INTO Song (Title) VALUES 
+    ('Go With the Flow'),
+    ('Sacrifice'),
+    ('Stupid Love'),
+    ('Reptilia'),
+    ('Paranoid'),
+    ('Dirty Love'),  
+    ('9/10'),
+    ('Eyes Wide Terrified'),
+    ('Saddest Song'),
+    ('Apartment'),
+    ('Never Meant'),
+    ('Fever and Chills'), 
+    ('The Bends'),
+    ('Char'),
+    ('Clarity'),
+    ('Trap Queen'),
+    ('Closet'),
+    ('Jamming'), 
+    ('The Gambler'),
+    ('Sweet Emotion'),
+    ('Looking for the Perfect Beat'),
+    ('City of New Orleans'),
+    ('Highwayman'),
+    ('Rainbow in the Dark'), 
+    ('Dangerous'),
+    ('I Write Sins Not Tragedies'),
+    ('Pastempomat'),
+    ('Immortalized'),
+    ('Canto Della Terra'),
+    ('Of The Night');
 
 --insert artist name--
-INSERT INTO Artist (ID, Artist_Name) VALUES 
-    (1, 'Queens of the Stone age'),     -- (1) Go With the Flow
-    (2, 'The Weeknd'),                  -- (2) Sacrifice
-    (3, 'Lady Gaga'),                   -- (3) Stupid Love
-    (4, 'The Strokes'),                 -- (4) Reptilia
-    (5, 'Black Sabbath'),               -- (5) Paranoid
-    (6, 'Motörhead'),                   -- (6) Dirty Love
-    (7, 'Jeff Rosenstock'),             -- (7) 9/10
-    (8, 'Johnny Foreigner'),            -- (8) Eyes Wide Terrified
-    (9, 'Streetlight Manifesto'),       -- (9) Saddest Song
-    (10, 'Modern Baseball'),            -- (10) Apartment
-    (11, 'American Football'),          -- (11) Never Meant
-    (12, 'Fatter Than Albert'),         -- (12) Fever and Chills
-    (13, 'Radiohead'),                  -- (13) The Bends
-    (14, 'Crystal Castles'),            -- (14) Char
-    (15, 'Zedd'),                       -- (15) Clarity
-    (16, 'Foxes'),                      -- (15) Clarity
-    (17, 'Fetty Wap'),                  -- (16) Trap Queen
-    (18, 'Fleshwater'),                 -- (17) Closet
-    (19, 'Bob Marley & The Wailers'),   -- (18) Jamming
-    (20, 'Kenny Rogers'),               -- (19) The Gambler
-    (21, 'Aerosmith'),                  -- (20) Sweet Emotion
-    (22, 'Afrika Bambaataa'),           -- (21) Looking for the Perfect Beat
-    (23, 'The Soulsonic Force'),        -- (21) Looking for the Perfect Beat
-    (24, 'Willie Nelson'),              -- (22) City of New Orleans
-    (25, 'Johnny Cash'),                -- (23) Highwayman
-    (26, 'Dio'),                        -- (24) Rainbow in the Dark
-    (27, 'David Guetta'),               -- (25) Dangerous
-    (28, 'Panic At The Disco!'),        -- (26) I Write Sins Not Tragedies
-    (29, 'Dawid Podsiadło'),            -- (27) Pastempomat
-    (30, 'Disturbed'),                  -- (28) Immortalized
-    (31, 'Andrea Bocelli'),             -- (29) Canto Della Terra
-    (32, 'Bastile');                    -- (30) Of The Night
+INSERT INTO Artist (Artist_Name) VALUES 
+    ('Queens of the Stone age'),     -- (1) Go With the Flow
+    ('The Weeknd'),                  -- (2) Sacrifice
+    ('Lady Gaga'),                   -- (3) Stupid Love
+    ('The Strokes'),                 -- (4) Reptilia
+    ('Black Sabbath'),               -- (5) Paranoid
+    ('Motörhead'),                   -- (6) Dirty Love
+    ('Jeff Rosenstock'),             -- (7) 9/10
+    ('Johnny Foreigner'),            -- (8) Eyes Wide Terrified
+    ('Streetlight Manifesto'),       -- (9) Saddest Song
+    ('Modern Baseball'),            -- (10) Apartment
+    ('American Football'),          -- (11) Never Meant
+    ('Fatter Than Albert'),         -- (12) Fever and Chills
+    ('Radiohead'),                  -- (13) The Bends
+    ('Crystal Castles'),            -- (14) Char
+    ('Zedd'),                       -- (15) Clarity
+    ('Foxes'),                      -- (15) Clarity
+    ('Fetty Wap'),                  -- (16) Trap Queen
+    ('Fleshwater'),                 -- (17) Closet
+    ('Bob Marley & The Wailers'),   -- (18) Jamming
+    ('Kenny Rogers'),               -- (19) The Gambler
+    ('Aerosmith'),                  -- (20) Sweet Emotion
+    ('Afrika Bambaataa'),           -- (21) Looking for the Perfect Beat
+    ('The Soulsonic Force'),        -- (21) Looking for the Perfect Beat
+    ('Willie Nelson'),              -- (22) City of New Orleans
+    ('Johnny Cash'),                -- (23) Highwayman
+    ('Dio'),                        -- (24) Rainbow in the Dark
+    ('David Guetta'),               -- (25) Dangerous
+    ('Panic At The Disco!'),        -- (26) I Write Sins Not Tragedies
+    ('Dawid Podsiadło'),            -- (27) Pastempomat
+    ('Disturbed'),                  -- (28) Immortalized
+    ('Andrea Bocelli'),             -- (29) Canto Della Terra
+    ('Bastile');                    -- (30) Of The Night
 
 --insert producer name--
-INSERT INTO Producer (ID, Prod_name) VALUES
-    (1, 'Josh Homme'),                  -- (1) Go With the Flow
-    (2, 'Eric Valentine'),              -- (1) Go With the Flow
-    (3, 'Swedish House Mafia'),         -- (2) Sacrifice
-    (4, 'Max Martin'),                  -- (2) Sacrifice
-    (5, 'Oscar Holter'),                -- (2) Sacrifice
-    (6, 'The Weeknd'),                  -- (2) Sacrifice
-    (7, 'Carl Nordström'),              -- (2) Sacrifice
-    (8, 'BloodPop'),                    -- (3) Stupid Love
-    (9, 'Tchami'),                      -- (3) Stupid Love
-    (10, 'Max Martin'),                 -- (3) Stupid Love
-    (11, 'Gordan Raphael'),             -- (4) Reptilia
-    (12, 'Rodger Bain'),                -- (5) Paranoid
-    (13, 'Vic Maile'),                  -- (6) Dirty Love
-    (14, 'Jack Shirley'),               -- (7) 9/10 
-    (15, 'Gene "Machine" Freeman'),     -- (8) Eyes Wide Terrified
-    (16, 'Tomas Kalnoky'),              -- (9) Saddest Song
-    (17, 'Modern Baseball'),            -- (10) Apartment 
-    (18, 'Brendan Gamble'),             -- (11) Never Meant
-    (19, 'Nick Lauve'),                 -- (12) Fever and Chills
-    (20, 'Matt Aguiluz'),               -- (12) Fever and Chills
-    (21, 'John Leckie'),                -- (13) The Bends
-    (22, 'Ethan Kath'),                 -- (14) Char
-    (23, 'Zedd'),                       -- (15) Clarity
-    (24, 'Tony Fadd'),                  -- (16) Trap Queen
-    (25, 'Kurt Ballou'),                -- (17) Closet
-    (26, 'Stephen Marley'),             -- (18) Jamming
-    (27, 'Larry Butler'),               -- (19) The Gambler
-    (28, 'Jack Douglas'),               -- (20) Sweet Emotion
-    (29, 'Arthur Baker'),               -- (21) Looking for the Perfect Beat
-    (30, 'John Robie'),                 -- (21) Looking for the Perfect Beat
-    (31, 'Chips Moman'),                -- (22) City of New Orleans
-    (32, 'Chips Moman'),                -- (23) Highwayman
-    (33, 'Ronnie James Dio'),           -- (24) Rainbow in the Dark
-    (34, 'Giorgio Tuinfort'),           -- (25) Dangerous
-    (35, 'Sam Martin'),                 -- (25) Dangerous
-    (36, 'Jason Evigan'),               -- (25) Dangerous
-    (37, 'Matt Squire'),                -- (26) I Write Sins Not Tragedies
-    (38, 'Bogdan Kondracki'),           -- (27) Pastempomat
-    (39, 'Daniel Walczak'),             -- (27) Pastempomat
-    (40, 'Kevin Churko'),               -- (28) Immortalized
-    (41, 'Mauro Malavasi'),             -- (29) Canto Della Terra
-    (42, 'Dan Smith');                  -- (30) Of The Night
+INSERT INTO Producer (Prod_Name) VALUES
+    ('Josh Homme'),                  -- (1) Go With the Flow
+    ('Eric Valentine'),              -- (1) Go With the Flow
+    ('Swedish House Mafia'),         -- (2) Sacrifice
+    ('Max Martin'),                  -- (2) Sacrifice
+    ('Oscar Holter'),                -- (2) Sacrifice
+    ('The Weeknd'),                  -- (2) Sacrifice
+    ('Carl Nordström'),              -- (2) Sacrifice
+    ('BloodPop'),                    -- (3) Stupid Love
+    ('Tchami'),                      -- (3) Stupid Love
+    ('Max Martin'),                 -- (3) Stupid Love
+    ('Gordan Raphael'),             -- (4) Reptilia
+    ('Rodger Bain'),                -- (5) Paranoid
+    ('Vic Maile'),                  -- (6) Dirty Love
+    ('Jack Shirley'),               -- (7) 9/10 
+    ('Gene "Machine" Freeman'),     -- (8) Eyes Wide Terrified
+    ('Tomas Kalnoky'),              -- (9) Saddest Song
+    ('Modern Baseball'),            -- (10) Apartment 
+    ('Brendan Gamble'),             -- (11) Never Meant
+    ('Nick Lauve'),                 -- (12) Fever and Chills
+    ('Matt Aguiluz'),               -- (12) Fever and Chills
+    ('John Leckie'),                -- (13) The Bends
+    ('Ethan Kath'),                 -- (14) Char
+    ('Zedd'),                       -- (15) Clarity
+    ('Tony Fadd'),                  -- (16) Trap Queen
+    ('Kurt Ballou'),                -- (17) Closet
+    ('Stephen Marley'),             -- (18) Jamming
+    ('Larry Butler'),               -- (19) The Gambler
+    ('Jack Douglas'),               -- (20) Sweet Emotion
+    ('Arthur Baker'),               -- (21) Looking for the Perfect Beat
+    ('John Robie'),                 -- (21) Looking for the Perfect Beat
+    ('Chips Moman'),                -- (22) City of New Orleans
+    ('Chips Moman'),                -- (23) Highwayman
+    ('Ronnie James Dio'),           -- (24) Rainbow in the Dark
+    ('Giorgio Tuinfort'),           -- (25) Dangerous
+    ('Sam Martin'),                 -- (25) Dangerous
+    ('Jason Evigan'),               -- (25) Dangerous
+    ('Matt Squire'),                -- (26) I Write Sins Not Tragedies
+    ('Bogdan Kondracki'),           -- (27) Pastempomat
+    ('Daniel Walczak'),             -- (27) Pastempomat
+    ('Kevin Churko'),               -- (28) Immortalized
+    ('Mauro Malavasi'),             -- (29) Canto Della Terra
+    ('Dan Smith');                  -- (30) Of The Night
     
 --insert writer name--
-INSERT INTO Writer (ID, Writer_Name) VALUES 
-    (1, 'Josh Homme'),                  -- (1) Go With the Flow
-    (2, 'Nick Oliver'),                 -- (1) Go With the Flow
-    (3, 'Max Martin'),                  -- (2) Sacrifice
-    (4, 'Abel Tesfaye'),                -- (2) Sacrifice
-    (5, 'Alex Hedfors'),                -- (2) Sacrifice
-    (6, 'Carl Nordstrom'),              -- (2) Sacrifice
-    (7, 'Kevin Duane Mccord'),          -- (2) Sacrifice
-    (8, 'Oscar Holter'),                -- (2) Sacrifice
-    (9, 'Sebastian Ingrosso'),          -- (2) Sacrifice
-    (10, 'Steve Angello'),              -- (2) Sacrifice
-    (11, 'BloodPop'),                   -- (3) Stupid Love
-    (12, 'Max Martin'),                 -- (3) Stupid Love
-    (13, 'Ely Rise'),                   -- (3) Stupid Love
-    (14, 'Lady Gaga'),                  -- (3) Stupid Love
-    (15, 'Martin Bresso'),              -- (3) Stupid Love
-    (16, 'Julian Casablancas'),         -- (4) Reptilia
-    (17, 'Ozzy Osbourne'),              -- (5) Paranoid
-    (18, 'Tony Lommi'),                 -- (5) Paranoid
-    (19, 'Geezer Butler'),              -- (5) Paranoid
-    (20, 'Bill Ward'),                  -- (5) Paranoid
-    (21, 'Eddie Clarke'),               -- (6) Dirty Love
-    (22, 'Lemmy Kilmister'),            -- (6) Dirty Love
-    (23, 'Phil Taylor'),                -- (6) Dirty Love
-    (24, 'Jeff Rosenstock'),            -- (7) 9/10
-    (25, 'Alexi Berrow'),               -- (8) Eyes Wide Terrified
-    (26, 'Tomas Kalnoky'),              -- (9) Saddest Song
-    (27, 'Brendan Taylor Francis'),     -- (10) Apartment
-    (28, 'Jacob Starnes Ewald'),        -- (10) Apartment
-    (29, 'Ian Daniel Farmer'),          -- (10) Apartment
-    (30, 'Sean Edward Huber'),          -- (10) Apartment
-    (31, 'Micheal Tomas Kinsella'),     -- (11) Never Meant
-    (32, 'Steven Joseph Lamos'),        -- (11) Never Meant
-    (33, 'Stephen Michael Holmes'),     -- (11) Never Meant
-    (34, 'Fatter Than Albert'),         -- (12) Fever and Chills
-    (35, 'Thom Yorke'),                 -- (13) The Bends
-    (36, 'Jonny Greenwood'),            -- (13) The Bends
-    (37, 'Ed OBrien'),                  -- (13) The Bends
-    (38, 'Colin Greenwood'),            -- (13) The Bends
-    (39, 'Philip Selway'),              -- (13) The Bends
-    (40, 'Ethan Kath'),                 -- (14) Char
-    (41, 'Anton Zaslavski'),            -- (15) Clarity
-    (42, 'Holly Hafermann'),            -- (15) Clarity
-    (43, 'Matthew Koma'),               -- (15) Clarity
-    (44, 'Porter Robinson'),            -- (15) Clarity
-    (45, 'Willie Maxwell'),             -- (16) Trap Queen
-    (46, 'Anthony Didio'),              -- (17) Closet
-    (47, 'Jeremy Martin'),              -- (17) Closet
-    (48, 'Mirsy'),                      -- (17) Closet
-    (49, 'Matt Wood'),                  -- (17) Closet
-    (50, 'Bob Marley'),                 -- (18) Jamming
-    (51, 'Don Alan Schlitz Jr'),        -- (19) The Gambler
-    (52, 'Rod Temperton'),              -- (20) Sweet Emotion
-    (53, 'Steven Tyler'),               -- (20) Sweet Emotion
-    (54, 'Tom Hamilton'),               -- (20) Sweet Emotion
-    (55, 'A Baker'),                    -- (21) Looking for the Perfect Beat
-    (56, 'Afrika Bambaataa'),           -- (21) Looking for the Perfect Beat
-    (57, 'Arthur Baker'),               -- (21) Looking for the Perfect Beat
-    (58, 'E Williams'),                 -- (21) Looking for the Perfect Beat
-    (59, 'J Miller'),                   -- (21) Looking for the Perfect Beat
-    (60, 'J Robie'),                    -- (21) Looking for the Perfect Beat
-    (61, 'R Allen'),                    -- (21) Looking for the Perfect Beat
-    (62, 'The Soulsonic Force'),        -- (21) Looking for the Perfect Beat
-    (63, 'S Goodman'),                  -- (22) City of New Orleans
-    (64, 'Jimmy Webb'),                 -- (23) Highwayman
-    (65, 'Jimmy Bain'),                 -- (24) Rainbow in the Dark
-    (66, 'Ronnie James Dio'),           -- (24) Rainbow in the Dark
-    (67, 'Vincent Appice'),             -- (24) Rainbow in the Dark
-    (68, 'Vinny Appice'),               -- (24) Rainbow in the Dark
-    (69, 'Vivian Campbell'),            -- (24) Rainbow in the Dark
-    (70, 'Giorgio Tuinfort'),           -- (25) Dangerous
-    (71, 'Sam Martin'),                 -- (25) Dangerous
-    (72, 'Jason Evigan'),               -- (25) Dangerous
-    (73, 'Lindy Robbins'),              -- (25) Dangerous
-    (74, 'Brendon Urie'),               -- (26) I Write Sins Not Tragedies
-    (75, 'Ryan Ross'),                  -- (26) I Write Sins Not Tragedies
-    (76, 'Spencer Smith'),              -- (26) I Write Sins Not Tragedies
-    (77, 'Dawid Podsiadlo'),            -- (27) Pastempomat
-    (78, 'Bogdan Kondracki'),           -- (27) Pastempomat
-    (79, 'Kevin Churko'),               -- (28) Immortalized
-    (80, 'Dan Donegan'),                -- (28) Immortalized
-    (81, 'Mike Wengren'),               -- (28) Immortalized
-    (82, 'David Draiman'),              -- (28) Immortalized
-    (83, 'Francesco Sartori'),          -- (29) Canto Della Terra
-    (84, 'Lucio Quarantotto'),          -- (29) Canto Della Terra
-    (85, 'Benito Benitez'),             -- (30) Of The Night
-    (86, 'John Garrett III'),           -- (30) Of The Night
-    (87, 'Thea Austin');                -- (30) Of The Night
+INSERT INTO Writer (Writer_Name) VALUES 
+    ('Josh Homme'),                  -- (1) Go With the Flow
+    ('Nick Oliver'),                 -- (1) Go With the Flow
+    ('Max Martin'),                  -- (2) Sacrifice
+    ('Abel Tesfaye'),                -- (2) Sacrifice
+    ('Alex Hedfors'),                -- (2) Sacrifice
+    ('Carl Nordstrom'),              -- (2) Sacrifice
+    ('Kevin Duane Mccord'),          -- (2) Sacrifice
+    ('Oscar Holter'),                -- (2) Sacrifice
+    ('Sebastian Ingrosso'),          -- (2) Sacrifice
+    ('Steve Angello'),              -- (2) Sacrifice
+    ('BloodPop'),                   -- (3) Stupid Love
+    ('Max Martin'),                 -- (3) Stupid Love
+    ('Ely Rise'),                   -- (3) Stupid Love
+    ('Lady Gaga'),                  -- (3) Stupid Love
+    ('Martin Bresso'),              -- (3) Stupid Love
+    ('Julian Casablancas'),         -- (4) Reptilia
+    ('Ozzy Osbourne'),              -- (5) Paranoid
+    ('Tony Lommi'),                 -- (5) Paranoid
+    ('Geezer Butler'),              -- (5) Paranoid
+    ('Bill Ward'),                  -- (5) Paranoid
+    ('Eddie Clarke'),               -- (6) Dirty Love
+    ('Lemmy Kilmister'),            -- (6) Dirty Love
+    ('Phil Taylor'),                -- (6) Dirty Love
+    ('Jeff Rosenstock'),            -- (7) 9/10
+    ('Alexi Berrow'),               -- (8) Eyes Wide Terrified
+    ('Tomas Kalnoky'),              -- (9) Saddest Song
+    ('Brendan Taylor Francis'),     -- (10) Apartment
+    ('Jacob Starnes Ewald'),        -- (10) Apartment
+    ('Ian Daniel Farmer'),          -- (10) Apartment
+    ('Sean Edward Huber'),          -- (10) Apartment
+    ('Micheal Tomas Kinsella'),     -- (11) Never Meant
+    ('Steven Joseph Lamos'),        -- (11) Never Meant
+    ('Stephen Michael Holmes'),     -- (11) Never Meant
+    ('Fatter Than Albert'),         -- (12) Fever and Chills
+    ('Thom Yorke'),                 -- (13) The Bends
+    ('Jonny Greenwood'),            -- (13) The Bends
+    ('Ed OBrien'),                  -- (13) The Bends
+    ('Colin Greenwood'),            -- (13) The Bends
+    ('Philip Selway'),              -- (13) The Bends
+    ('Ethan Kath'),                 -- (14) Char
+    ('Anton Zaslavski'),            -- (15) Clarity
+    ('Holly Hafermann'),            -- (15) Clarity
+    ('Matthew Koma'),               -- (15) Clarity
+    ('Porter Robinson'),            -- (15) Clarity
+    ('Willie Maxwell'),             -- (16) Trap Queen
+    ('Anthony Didio'),              -- (17) Closet
+    ('Jeremy Martin'),              -- (17) Closet
+    ('Mirsy'),                      -- (17) Closet
+    ('Matt Wood'),                  -- (17) Closet
+    ('Bob Marley'),                 -- (18) Jamming
+    ('Don Alan Schlitz Jr'),        -- (19) The Gambler
+    ('Rod Temperton'),              -- (20) Sweet Emotion
+    ('Steven Tyler'),               -- (20) Sweet Emotion
+    ('Tom Hamilton'),               -- (20) Sweet Emotion
+    ('A Baker'),                    -- (21) Looking for the Perfect Beat
+    ('Afrika Bambaataa'),           -- (21) Looking for the Perfect Beat
+    ('Arthur Baker'),               -- (21) Looking for the Perfect Beat
+    ('E Williams'),                 -- (21) Looking for the Perfect Beat
+    ('J Miller'),                   -- (21) Looking for the Perfect Beat
+    ('J Robie'),                    -- (21) Looking for the Perfect Beat
+    ('R Allen'),                    -- (21) Looking for the Perfect Beat
+    ('The Soulsonic Force'),        -- (21) Looking for the Perfect Beat
+    ('S Goodman'),                  -- (22) City of New Orleans
+    ('Jimmy Webb'),                 -- (23) Highwayman
+    ('Jimmy Bain'),                 -- (24) Rainbow in the Dark
+    ('Ronnie James Dio'),           -- (24) Rainbow in the Dark
+    ('Vincent Appice'),             -- (24) Rainbow in the Dark
+    ('Vinny Appice'),               -- (24) Rainbow in the Dark
+    ('Vivian Campbell'),            -- (24) Rainbow in the Dark
+    ('Giorgio Tuinfort'),           -- (25) Dangerous
+    ('Sam Martin'),                 -- (25) Dangerous
+    ('Jason Evigan'),               -- (25) Dangerous
+    ('Lindy Robbins'),              -- (25) Dangerous
+    ('Brendon Urie'),               -- (26) I Write Sins Not Tragedies
+    ('Ryan Ross'),                  -- (26) I Write Sins Not Tragedies
+    ('Spencer Smith'),              -- (26) I Write Sins Not Tragedies
+    ('Dawid Podsiadlo'),            -- (27) Pastempomat
+    ('Bogdan Kondracki'),           -- (27) Pastempomat
+    ('Kevin Churko'),               -- (28) Immortalized
+    ('Dan Donegan'),                -- (28) Immortalized
+    ('Mike Wengren'),               -- (28) Immortalized
+    ('David Draiman'),              -- (28) Immortalized
+    ('Francesco Sartori'),          -- (29) Canto Della Terra
+    ('Lucio Quarantotto'),          -- (29) Canto Della Terra
+    ('Benito Benitez'),             -- (30) Of The Night
+    ('John Garrett III'),           -- (30) Of The Night
+    ('Thea Austin');                -- (30) Of The Night
 
 --###########################################################################
 -- linking tables
@@ -377,45 +378,41 @@ INSERT INTO SongWriter (WriterID, SongID) VALUES
     (86, 30),   -- [John Garrett III] linked to [Of The Night]
     (87, 30);   -- [Thea Austin] linked to [Of The Night]
 
-/*
-Must insert values into table KaraokeFile to associate the SongID with a FileName.
-*/
-
-INSERT INTO KaraokeFile (FileName, SongID) VALUES
-    (1, 1),
-    (2, 2),
-    (3, 3),
-    (4, 4),
-    (5, 5),
-    (6, 6),
-    (7, 7),
-    (8, 8),
-    (9, 9),
-    (10, 10),
-    (11, 11),
-    (12, 12),
-    (13, 13),
-    (14, 14),
-    (15, 15),
-    (16, 16),
-    (17, 17),
-    (18, 18),
-    (19, 19),
-    (20, 20),
-    (21, 21),
-    (22, 22),
-    (23, 23),
-    (24, 24),
-    (25, 25),
-    (26, 26),
-    (27, 27),
-    (28, 28),
-    (29, 29),
-    (30, 30);
-
-
 
 --"10 users, and 5 of them signed up to sing in each of the two queues" in the SQL script that inserts data--
+
+INSERT INTO KaraokeFile (ID, FileName) VALUES
+    (1, 'GoWithTheFlow.mp4'),
+    (2, 'Sacrifice.mp4'),
+    (3, 'StupidLove.mp4'),
+    (4, 'Reptilia.mp4'),
+    (5, 'Paranoid.mp4'),
+    (6, 'DirtyLove.mp4'),  
+    (7, '9/10.mp4'),
+    (8, 'EyesWideTerrified.mp4'),
+    (9, 'SaddestSong.mp4'),
+    (10, 'Apartment.mp4'),
+    (11, 'NeverMeant.mp4'),
+    (12, 'FeverandChills.mp4'), 
+    (13, 'TheBends.mp4'),
+    (14, 'Char.mp4'),
+    (15, 'Clarity.mp4'),
+    (16, 'TrapQueen.mp4'),
+    (17, 'Closet.mp4'),
+    (18, 'Jamming.mp4'), 
+    (19, 'TheGambler.mp4'),
+    (20, 'SweetEmotion.mp4'),
+    (21, 'LookingforthePerfectBeat.mp4'),
+    (22, 'CityofNewOrleans.mp4'),
+    (23, 'Highwayman.mp4'),
+    (24, 'RainbowintheDark.mp4'), 
+    (25, 'Dangerous.mp4'),
+    (26, 'IWriteSinsNotTragedies.mp4'),
+    (27, 'Pastempomat.mp4'),
+    (28, 'Immortalized.mp4'),
+    (29, 'CantoDellaTerra.mp4'),
+    (30, 'OfTheNight.mp4');
+
 
 INSERT INTO PQUser (PQ_FName, PQ_LName, Pledge) VALUES
     ('Chris', 'Benson', 50),
@@ -427,13 +424,12 @@ INSERT INTO FIUser (FI_FName, FI_LName) VALUES
     ('sdfds', 'asdfasd'),
     ('Racing', 'Car');
 
+INSERT INTO FIFOQueue (FIID, FileID, Time) VALUES
+    (1, 3, '10:00:00'),
+    (2, 5, '09:03:13'),
+    (3, 7, '08:12:14');
 
-INSERT INTO FIFOQueue (FIID, FileName, Time) VALUES
-    (1, 1, '10:00:00'),
-    (2, 2, '09:03:13'),
-    (3, 3, '08:12:14');
-
-INSERT INTO PriorityQueue (PQID, FileName, Time) VALUES
-    (1, 4, '14:00:00'),
-    (2, 5, '05:00:00'),
-    (3, 6, '03:31:41');
+INSERT INTO PriorityQueue (PQID, FileID, Time) VALUES
+    (1, 9, '14:00:00'),
+    (2, 2, '05:00:00'),
+    (3, 4, '03:31:41');
