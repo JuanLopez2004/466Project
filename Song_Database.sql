@@ -416,20 +416,29 @@ INSERT INTO KaraokeFile (ID, FileName) VALUES
 
 INSERT INTO PQUser (PQ_FName, PQ_LName, Pledge) VALUES
     ('Chris', 'Benson', 50),
-    ('asdf', 'dafdsfa', 420),
-    ('Huge', 'Mungus', 69);
+    ('Tommy', 'Otto', 420),
+    ('Kipling', 'Piers', 69),
+    ('Antoni', 'Mira', 1),
+    ('Danka', 'Ignacja', 4),
+    ('Maurycy', 'Julianna', 47);
 
 INSERT INTO FIUser (FI_FName, FI_LName) VALUES
     ('Rocky', 'Lombardi'),
-    ('sdfds', 'asdfasd'),
-    ('Racing', 'Car');
+    ('Karina', 'Eleonora'),
+    ('Nikola', 'Lidka'),
+    ('Teodor', 'Kamilla'),
+    ('Aniela', 'Lubomierz');
 
 INSERT INTO FIFOQueue (FIID, FileID, Time) VALUES
     (1, 3, '10:00:00'),
-    (2, 5, '09:03:13'),
-    (3, 7, '08:12:14');
+    (2, 5, '07:03:13'),
+    (3, 7, '08:12:14'),
+    (4, 9, '09:23:19'),
+    (5, 13, '11:47:19');
 
 INSERT INTO PriorityQueue (PQID, FileID, Time) VALUES
     (1, 9, '14:00:00'),
     (2, 2, '05:00:00'),
-    (3, 4, '03:31:41');
+    (3, 4, '03:31:41'),
+    (4, 23, '06:29:21'),
+    (5, 24, '07:30:22');
