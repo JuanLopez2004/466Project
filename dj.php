@@ -15,11 +15,11 @@ try
     // Set PDO to throw exceptions
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Fetch suppliers data
+    // Fetch Priority Queue table info
     $stmt = $pdo->query("SELECT * FROM PriorityQueue");
     $suppliers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    // Fetch parts data
+    // Fetching the FIFOQueue table info
     $stmt = $pdo->query("SELECT * FROM FIFOQueue");
     $parts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
