@@ -77,8 +77,8 @@ CREATE TABLE FIUser
 );
 
 /***********************************************************
-The following table(relation) represents the binary one-to-many 
-relationship that the entites Song and File have within the
+The following table(relation) represents the binary one-to-one 
+relationship the entites Song and File have within the
 ER Diagram. The primary key of File is set within the relation
 KaraokeFile and the primary key of Song is referenced as a
 foreign key.
