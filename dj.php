@@ -17,11 +17,11 @@ try
 
     // Fetch Priority Queue table info
     $stmt = $pdo->query("SELECT * FROM PriorityQueue");
-    $suppliers = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $PriorityQueue = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     // Fetching the FIFOQueue table info
     $stmt = $pdo->query("SELECT * FROM FIFOQueue");
-    $parts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $FIFOQueue = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 } catch (PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
