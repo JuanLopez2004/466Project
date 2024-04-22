@@ -1,4 +1,4 @@
- <?php
+<?php
 $host = 'courses';
 $dbname = 'z1933585';
 $username = 'z1933585';
@@ -33,7 +33,7 @@ try{
   }
   </style>
   <head>
-    <title>JBKD Home</title>
+    <title>Search Results</title>
   </head>
   <body>
     <h1><a href="homepage.php">John's Basement Karaoke Diner</a></h1>
