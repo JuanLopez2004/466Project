@@ -70,11 +70,11 @@ try
   <title>DJ Interface</title>
 </head>
 
-<body>
-  <h1>DJ Interface</h1>
+<body style="background-color:rgb(25, 25, 25);">
+  <h1 style="color: white;">DJ Interface</h1>
 
   <section>
-  <h2 style="color: black;">Priority Queue</h2>
+  <h2 style="color: white;">Priority Queue</h2>
         <table>
             <tr>
                 <th>Queue</th>
@@ -94,7 +94,7 @@ try
             <?php endforeach; ?>
         </table>
 
-        <h2 style="color: black;">Priority Queue</h2>
+        <h2 style="color: white;">Priority Queue</h2>
         <table>
             <tr>
                 <th>Queue</th>
