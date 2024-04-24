@@ -46,6 +46,70 @@
   body{
     text-align: center;
   }
+
+  .typewriter {
+  display: inline-block;
+}
+
+  .typewriter h1
+  {
+    color: #fff;
+    font-family: Times New Roman;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid orange; /* The typewriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    animation: typing 3.5s steps(30, end), blink-caret .5s step-end infinite;
+  }
+
+  /* The typing effect */
+  @keyframes typing
+  {
+   from { width: 0 }
+   to { width: 100% }
+  }
+
+  /* The typewriter cursor effect */
+  @keyframes blink-caret 
+  {
+    from, to { border-color: transparent }
+    50% { border-color: red }
+  }
+
+  .neonText {
+  animation: flicker 1.5s infinite alternate;animation: flicker 1.5s infinite alternate;
+  color: pink;
+  }
+
+  h1 {
+    animation: pulsate 0.11s ease-in-out infinite alternate;     
+}
+
+  h2 {
+  text-align: center;
+}
+
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+
+    text-shadow:
+      0 0 7px red,
+      0 0 10px red,
+      0 0 21px red,
+      0 0 42px red,
+      0 0 82px red,
+      0 0 92px red,
+      0 0 102px red,
+      0 0 151px red;
+    }
+    20%, 24%, 55% {        
+      text-shadow: none;
+  } 
+}
+.container {
+  margin-top: 20vh;
+}
+
 </style>
 
 <head>
@@ -53,10 +117,13 @@
 </head>
 
 <body style="background-color:rgb(25, 25, 25);">
-  <h1 style="color: white;">DJ Interface</h1>
+
+    <div class="typewriter">
+    <h1 style="color: white;">DJ Interface</h1>
+    </div>
 
   <section>
-  <h2 style="color: white;">Priority Queue</h2>
+  <h2 class="neonText">Priority Queue</h2>
         <table>
             <tr>
                 <th>Queue</th>
@@ -76,7 +143,7 @@
             <?php endforeach; ?>
         </table>
 
-        <h2 style="color: white;">FIFO Queue</h2>
+        <h2 class="neonText">FIFO Queue</h2>
         <table>
             <tr>
                 <th>Queue</th>
@@ -95,11 +162,6 @@
         </table>
 
   </section>
-
-  <?php
-    
-  ?>
-
 
 </body>
 
