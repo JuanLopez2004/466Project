@@ -42,6 +42,7 @@
         td
         {
             background-color: #FF0000;
+            font-weight: bold;
         }
   body{
     text-align: center;
