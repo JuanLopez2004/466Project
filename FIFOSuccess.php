@@ -1,3 +1,6 @@
+<?php
+require 'pdo.php';
+?>
 <!DOCTYPE html>
 <html>
 <style>
@@ -6,10 +9,6 @@ body {
 }
 </style>
 <?php
-    $host ='courses';
-    $dbname ='z1952526';
-    $username ='z1952526';
-    $password ='2004Mar09';
     try 
     {
         $dsn = "mysql:host=courses;dbname=z1952526";
