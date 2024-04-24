@@ -1,19 +1,6 @@
-<?php
-$host = 'courses';
-$dbname = 'z1933585';
-$username = 'z1933585';
-$password = '2002Dec27';
-
-try{
-  $dsn = "mysql:host=$host;dbname=$dbname";
-  $pdo = new PDO($dsn, $username, $password);
-
-  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-} catch(PDOException $e){
-  echo "Connection to database failed: " .$e->getMessage();
-}
-?>
+ <?php
+  require 'pdo.php';
+  ?>
 
 <!DOCTYPE html>
 <html>
@@ -33,7 +20,7 @@ try{
   }
   </style>
   <head>
-    <title>Search Results</title>
+    <title>JBKD Home</title>
   </head>
   <body>
     <h1><a href="homepage.php">John's Basement Karaoke Diner</a></h1>
@@ -56,14 +43,14 @@ try{
           GROUP_CONCAT(DISTINCT Artist.Artist_Name SEPARATOR ', ') AS Artists, 
           GROUP_CONCAT(DISTINCT Producer.Prod_Name SEPARATOR ', ') AS Producers, 
           GROUP_CONCAT(DISTINCT Writer.Writer_Name SEPARATOR ', ') AS Writers
-      FROM Song
+          FROM Song
           LEFT JOIN SongArtist ON Song.ID = SongArtist.SongID
           LEFT JOIN Artist ON SongArtist.ArtistID = Artist.ID
           LEFT JOIN SongProducer ON Song.ID = SongProducer.SongID
           LEFT JOIN Producer ON SongProducer.ProducerID = Producer.ID
           LEFT JOIN SongWriter ON Song.ID = SongWriter.SongID
           LEFT JOIN Writer ON SongWriter.WriterID = Writer.ID
-      WHERE ";
+          WHERE ";
 
       if ($searchType === 'title') {
           $sql .= "Song.Title LIKE '%$search%'";
@@ -78,12 +65,21 @@ try{
       $sql .= " GROUP BY Song.Title";
       $stmt = $pdo->query($sql);
       echo "<table border='1'>";
-      echo "<tr><th>Title</th><th>Artists</th><th>Producers</th><th>Writers</th></tr>";
+      echo "<tr>
+              <th>Title</th>
+              <th>Artists</th>
+              <th>Producers</th>
+              <th>Writers</th>
+            </tr>";
 
       while($row = $stmt->fetch()) {
-          echo "<tr><td>".$row['Title']."</td><td>".$row['Artists']."</td><td>".$row['Producers']."</td><td>".$row['Writers']."</td></tr>";
+        echo "<tr>
+                <td>".$row['Title']."</td>
+                <td>".$row['Artists']."</td>
+                <td>".$row['Producers']."</td>
+                <td>".$row['Writers']."</td>
+              </tr>";
       }
-
       echo "</table>";
     }
     ?>
