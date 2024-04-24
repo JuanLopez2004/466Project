@@ -94,7 +94,7 @@ try
             <?php endforeach; ?>
         </table>
 
-        <h2 style="color: white;">Priority Queue</h2>
+        <h2 style="color: white;">FIFO Queue</h2>
         <table>
             <tr>
                 <th>Queue</th>
