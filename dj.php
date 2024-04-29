@@ -80,6 +80,8 @@
   .neonText {
   animation: flicker 1.5s infinite alternate;animation: flicker 1.5s infinite alternate;
   color: pink;
+  font-family: Gabriola;
+  font-size: 30px;
   }
 
   h1 {
