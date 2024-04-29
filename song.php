@@ -32,6 +32,7 @@ if(!$song){
   exit;
 }
 
+// form submissions of data into the USER tables and submission of ID as FileID into the Queue Tables
 if(isset($_GET['submit_p'])) 
 {
     if(isset($_GET['PQ_FName']) && isset($_GET['PQ_LName']) && isset($_GET['Pledge'])) 
