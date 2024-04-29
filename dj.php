@@ -17,6 +17,7 @@
 
 <html>
 <style>
+        color: white;
         table
         {
             width: 100%;
@@ -79,6 +80,8 @@
   .neonText {
   animation: flicker 1.5s infinite alternate;animation: flicker 1.5s infinite alternate;
   color: pink;
+  font-family: Gabriola;
+  font-size: 30px;
   }
 
   h1 {
@@ -109,7 +112,7 @@
 .container {
   margin-top: 20vh;
 }
-a{text-decoration: none; color: white;}
+a{text-decoration: none;}
 
 </style>
 
@@ -168,5 +171,4 @@ a{text-decoration: none; color: white;}
 <footer>
   <h3><a href="homepage.php">Home</a></h3>
 </footer>
-
 </html>
