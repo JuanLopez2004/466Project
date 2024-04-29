@@ -48,7 +48,6 @@ if(!$song){
 </form>
 
 <?php
-
 if(isset($_GET['submit'])) 
 {
     if(isset($_GET['PQ_FName']) && isset($_GET['PQ_LName']) && isset($_GET['Pledge'])) 
@@ -57,7 +56,7 @@ if(isset($_GET['submit']))
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$_GET['PQ_FName'], $_GET['PQ_LName'], $_GET['Pledge']]);
 
-        $sql = "INSERT INTO PriorityQueue (PQID, FileID, Time) VALUES (LAST_INSERT_ID(), ?, NOW())";
+        $sql = "INSERT INTO PriorityQueue (FileID, Time) VALUES (?, NOW())";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$songId]);
     }
@@ -68,7 +67,7 @@ if(isset($_GET['submit']))
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$_GET['FI_FName'], $_GET['FI_LName']]);
 
-        $sql = "INSERT INTO FIFOQueue (FIID, FileID, Time) VALUES (LAST_INSERT_ID(), ?, NOW())";
+        $sql = "INSERT INTO FIFOQueue (FileID, Time) VALUES (?, NOW())";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$songId]);
     }
