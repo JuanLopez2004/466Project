@@ -1,3 +1,4 @@
+
 <?php
 require 'pdo.php';
 
@@ -32,17 +33,22 @@ if(!$song){
 }
 ?>
 
+<form method="get">
+    <input type="text" name="PQ_FName" placeholder="First Name">
+    <input type="text" name="PQ_LName" placeholder="Last Name">
+    <input type="text" name="Pledge" placeholder="Pledge Amount">
+    <input type="hidden" name="id" value="<?= $songId ?>">
+    <input type="submit" name="submit" value="Submit to Priority Queue">
+</form>
+<form method="get">
+    <input type="text" name="FI_FName" placeholder="First Name">
+    <input type="text" name="FI_LName" placeholder="Last Name">
+    <input type="hidden" name="id" value="<?= $songId ?>">
+    <input type="submit" name="submit" value="Submit to Free Queue">
+</form>
+
 <?php
-/* 
-INSERT INTO PQUser (PQ_FName, PQ_LName, Pledge) VALUES
-INSERT INTO FIUser (FI_FName, FI_LName) VALUES
 
-INSERT INTO FIFOQueue (FIID, FileID, Time) VALUES
-INSERT INTO PriorityQueue (PQID, FileID, Time) VALUES
-
-where FileID is the song id
-PQID and FIID are primary keys that are set to be auto incremented in the sql table
-*/
 if(isset($_GET['submit'])) 
 {
     if(isset($_GET['PQ_FName']) && isset($_GET['PQ_LName']) && isset($_GET['Pledge'])) 
@@ -51,7 +57,7 @@ if(isset($_GET['submit']))
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$_GET['PQ_FName'], $_GET['PQ_LName'], $_GET['Pledge']]);
 
-        $sql = "INSERT INTO PriorityQueue (PQID, FileID, Time) VALUES (LAST_INSERT_ID(), $songId, NOW())";
+        $sql = "INSERT INTO PriorityQueue (PQID, FileID, Time) VALUES (LAST_INSERT_ID(), ?, NOW())";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$songId]);
     }
@@ -62,24 +68,12 @@ if(isset($_GET['submit']))
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$_GET['FI_FName'], $_GET['FI_LName']]);
 
-        $sql = "INSERT INTO FIFOQueue (FIID, FileID, Time) VALUES (LAST_INSERT_ID(), $songId, NOW())";
+        $sql = "INSERT INTO FIFOQueue (FIID, FileID, Time) VALUES (LAST_INSERT_ID(), ?, NOW())";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$songId]);
     }
 }
 ?>
-
-<form>
-    <input type="text" name="PQ_FName" placeholder="First Name">
-    <input type="text" name="PQ_LName" placeholder="Last Name">
-    <input type="text" name="Pledge" placeholder="Pledge Amount">
-    <input type="submit" name="submit" value="Submit to Priority Queue">
-</form>
-<form>
-    <input type="text" name="FI_FName" placeholder="First Name">
-    <input type="text" name="FI_LName" placeholder="Last Name">
-    <input type="submit" name="submit" value="Submit to Free Queue">
-</form>
 
 <!DOCTYPE html>
 <html>
