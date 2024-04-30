@@ -13,6 +13,18 @@
                          FROM PQUser 
                          JOIN PriorityQueue ON PQUser.PQUser = PriorityQueue.PQID");
     $PQresults = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // Sort $PQresults by 'Pledge' in descending order, but maintain the order of PQUser
+    usort($PQresults, function($a, $b)
+    {
+      if ($b['Pledge'] == $a['Pledge'])
+      {
+        // If pledges are equal, sort by PQUser in ascending order
+        return $a['PQUser'] <=> $b['PQUser'];
+      }
+      // Otherwise, sort by Pledge in descending order
+      return $b['Pledge'] <=> $a['Pledge'];
+    });
 ?>
 
 <html>
