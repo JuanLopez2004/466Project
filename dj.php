@@ -29,7 +29,6 @@
 
 <html>
 <style>
-    color: white;
         table
         {
             width: 100%;
@@ -147,14 +146,14 @@
                 <th>Pledge</th>
                 <th>KaraokeID</th>
             </tr>
-            <?php foreach ($PQresults as $PQresults) : ?>
-                <tr>
-                    <td><?php echo $PQresults['PQUser']; ?></td>
-                    <td><?php echo $PQresults['PQ_FName']; ?></td>
-                    <td><?php echo $PQresults['PQ_LName']; ?></td>
-                    <td><?php echo $PQresults['Pledge']; ?></td>
-                    <td><?php echo $PQresults['FileID']; ?></td>
-                </tr>
+            <?php foreach ($PQresults as $index => $PQresult) : ?>
+            <tr>
+              <td><?php echo $index + 1; ?></td>
+              <td><?php echo $PQresult['PQ_FName']; ?></td>
+              <td><?php echo $PQresult['PQ_LName']; ?></td>
+              <td><?php echo $PQresult['Pledge']; ?></td>
+              <td><?php echo $PQresult['FileID']; ?></td>
+            </tr>
             <?php endforeach; ?>
         </table>
 
