@@ -15,10 +15,6 @@ body {
 <?php
     try 
     {
-        $dsn = "mysql:host=courses;dbname=z1952526";
-        $pdo = new PDO($dsn, $username, $password);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
           $sql = "SELECT FI_Fname, FI_Lname, FileName FROM FIUser JOIN FIFOQueue ON FIUser.FIUser = FIFOQueue.FIID 
           JOIN KaraokeFile ON FIFOQueue.FileID = KaraokeFile.FileID WHERE FIUser.FIUser = 1";
 
