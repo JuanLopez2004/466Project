@@ -1,20 +1,13 @@
-<?php
-require 'pdo.php';
-?>
-
 <!DOCTYPE html>
 <html>
-
 <style>
 body {
     text-align: center;
 }
 </style>
 <meta http-equiv="refresh" content="5;url=homepage.php">
-
 <?php
-    try 
-    {
+    require 'pdo.php';
           $sql = "SELECT FI_Fname, FI_Lname, FileName FROM FIUser JOIN FIFOQueue ON FIUser.FIUser = FIFOQueue.FIID 
           JOIN KaraokeFile ON FIFOQueue.FileID = KaraokeFile.FileID WHERE FIUser.FIUser = 1";
 
@@ -31,11 +24,6 @@ body {
           {
             echo "<h1>No results found</h1>";
           }
-    }
-    catch(PDOexception $e) 
-    { 
-        echo "Connection to database failed: " . $e->getMessage();
-    }
 ?>
  <h1 id="countdown">Redirecting in 5 seconds...</h1>
  <img src="https://i.imgur.com/qe4Qnc9.jpeg" width="300">
