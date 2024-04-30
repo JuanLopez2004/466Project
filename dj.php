@@ -178,5 +178,7 @@
   </section>
 
 </body>
-
+<footer>
+  <h3><a href="homepage.php">Home</a></h3>
+</footer>
 </html>
