@@ -41,8 +41,8 @@ body {
         echo "Connection to database failed: " . $e->getMessage();
     }
 ?>
- <img src="https://i.imgur.com/qe4Qnc9.jpeg" width="600">
  <h1 id="countdown">Redirecting in 5 seconds...</h1>
+ <img src="https://i.imgur.com/qe4Qnc9.jpeg" width="300">
  </html>
 
 <script>
