@@ -419,8 +419,7 @@ INSERT INTO PQUser (PQ_FName, PQ_LName, Pledge) VALUES
     ('Tommy', 'Otto', 420),
     ('Kipling', 'Piers', 69),
     ('Antoni', 'Mira', 1),
-    ('Danka', 'Ignacja', 4),
-    ('Maurycy', 'Julianna', 47);
+    ('Danka', 'Ignacja', 4);
 
 INSERT INTO FIUser (FI_FName, FI_LName) VALUES
     ('Rocky', 'Lombardi'),

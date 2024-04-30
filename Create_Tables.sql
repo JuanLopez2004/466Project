@@ -144,7 +144,7 @@ as the foreign key.
 ************************************************************/
 CREATE TABLE FIFOQueue
 (
-    FIID INT,
+    FIID INT AUTO_INCREMENT,
     FileID INT,
     Time TIME,
     FOREIGN KEY (FIID) REFERENCES FIUser(FIUser),
@@ -160,7 +160,7 @@ PriorityQueue represented as the foriegn key.
 ************************************************************/
 CREATE TABLE PriorityQueue
 (
-    PQID INT,
+    PQID INT AUTO_INCREMENT,
     FileID INT,
     Time TIME,
     FOREIGN KEY (PQID) REFERENCES PQUser(PQUser),

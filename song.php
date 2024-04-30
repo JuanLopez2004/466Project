@@ -27,8 +27,45 @@ $stmt->execute([$songId]);
 $song = $stmt->fetch();
 
 if(!$song){
-  echo "Song not found.";
-  exit;
+  header('Location: error.php');
+  exit();
+}
+
+// form submissions of data into the USER tables and submission of ID as FileID into the Queue Tables
+if(isset($_GET['submit_p'])) 
+{
+  if(isset($_GET['PQ_FName']) && isset($_GET['PQ_LName']) && isset($_GET['Pledge'])) 
+  {
+    $sql = "INSERT INTO PQUser (PQ_FName, PQ_LName, Pledge) VALUES (?, ?, ?)";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$_GET['PQ_FName'], $_GET['PQ_LName'], $_GET['Pledge']]);
+
+    $sql = "INSERT INTO PriorityQueue (FileID, Time) VALUES (?, NOW())";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$songId]);
+
+    // redirect
+    header("Location: dj.php");
+    exit();
+  }
+}
+
+if(isset($_GET['submit_f'])) 
+{
+  if(isset($_GET['FI_FName']) && isset($_GET['FI_LName'])) 
+  {
+    $sql = "INSERT INTO FIUser (FI_FName, FI_LName) VALUES (?, ?)";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$_GET['FI_FName'], $_GET['FI_LName']]);
+
+    $sql = "INSERT INTO FIFOQueue (FileID, Time) VALUES (?, NOW())";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$songId]);
+
+    // redirect
+    header("Location: dj.php");
+    exit();
+  }
 }
 ?>
 
@@ -66,6 +103,19 @@ if(!$song){
             <td><?= htmlspecialchars($song['Writers']) ?></td>
         </tr>
     </table>
+        <form method="get">
+          <input type="text" name="PQ_FName" placeholder="First Name">
+          <input type="text" name="PQ_LName" placeholder="Last Name">
+          <input type="text" name="Pledge" placeholder="Pledge Amount">
+          <input type="hidden" name="id" value="<?= $songId ?>">
+          <input type="submit" name="submit_p" value="Submit to Priority Queue">
+        </form>
+        <form method="get">
+          <input type="text" name="FI_FName" placeholder="First Name">
+          <input type="text" name="FI_LName" placeholder="Last Name">
+          <input type="hidden" name="id" value="<?= $songId ?>">
+          <input type="submit" name="submit_f" value="Submit to Free Queue">
+        </form>
     <h3><a href="homepage.php">Return to homepage</a></h3>
   </body>
 </html>
