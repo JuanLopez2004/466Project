@@ -14,6 +14,7 @@
     </style>
     <title>JBKD</title>
     <h1><a href="homepage.php">John's Basement Karaoke Diner</a></h1>
+
     <h3>Find a song to sing along to!</h3>
   </head>
   <body>
@@ -28,5 +29,13 @@
   </body>
   <footer>
   <h3><a href="dj.php">DJ Interface</a></h3>
+  <img src="https://i.imgur.com/N2y9XgQ.png" width="300">
+
+  <p>
+  <audio controls autoplay>
+  <source src="winans.ogg" type="audio/ogg">
+  </audio>
+  <p>
+
 </footer>
 </html>
